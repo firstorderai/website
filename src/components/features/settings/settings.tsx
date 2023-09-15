@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import { SettingsForm } from '@src/components/features/settings/settings-form';
-import SettingsIcon from '@src/icons/settings-icon.svg';
+// import SettingsIcon from '@src/icons/settings-icon.svg';
 
 const useStyles = makeStyles((theme: Theme) => ({
   toggle: {
@@ -107,7 +107,7 @@ export const Settings = () => {
           }}
         />
       </CSSTransition>
-      <button
+      {/* <button
         className={classes.toggle}
         type="button"
         onClick={() => {
@@ -116,7 +116,7 @@ export const Settings = () => {
         title="Toggle editorial toolbox"
       >
         <SettingsIcon className={classes.toggleImage} />
-      </button>
+      </button> */}
     </>
   );
 };

@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     maxWidth: '125.8rem',
+    minHeight: '90rem',
     padding: theme.spacing(33, 0, 33),
     position: 'relative',
     width: '100%',
@@ -46,7 +47,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   partialBgContainer: {
     display: 'none',
     height: '100%',
-    left: '50%',
+    left: '44%',
     maxWidth: '192rem',
     position: 'absolute',
     top: 0,
@@ -58,8 +59,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 
   partialBg: {
-    backgroundSize: 'cover',
+    backgroundSize: 'contain',
     backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
     height: '100%',
     position: 'absolute',
     right: 0,

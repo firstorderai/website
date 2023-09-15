@@ -1,7 +1,7 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react';
 import Facebook from '@mui/icons-material/Facebook';
-import Instagram from '@mui/icons-material/Instagram';
-import LinkedIn from '@mui/icons-material/LinkedIn';
+// import Instagram from '@mui/icons-material/Instagram';
+// import LinkedIn from '@mui/icons-material/LinkedIn';
 import Twitter from '@mui/icons-material/Twitter';
 import { Theme, Container, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
@@ -32,8 +32,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingBottom: theme.spacing(5),
     paddingTop: theme.spacing(8),
     [theme.breakpoints.up('sm')]: {
-      paddingBottom: theme.spacing(10),
-      paddingTop: theme.spacing(20),
+      paddingBottom: theme.spacing(4),
+      paddingTop: theme.spacing(10),
     },
   },
   menuWrapper: {
@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: '#1B273A',
     margin: theme.spacing(0, 0, 4),
     [theme.breakpoints.up('sm')]: {
-      marginBottom: theme.spacing(8),
+      marginBottom: theme.spacing(5),
     },
   },
   submenu: {
@@ -93,8 +93,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   footerCorporateContainer: {
     backgroundColor: '#212121',
     color: '#fff',
-    paddingBottom: theme.spacing(14),
-    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(5),
+    paddingTop: theme.spacing(5),
   },
   footerCorporate: {
     marginLeft: 'auto',
@@ -123,7 +123,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   corporateLogoContainer: {
     flexShrink: 0,
-    marginBottom: theme.spacing(3),
+    // marginBottom: theme.spacing(3),
     marginTop: '0.2rem',
     [theme.breakpoints.up('md')]: {
       flexShrink: 0,
@@ -144,7 +144,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   copyright: {
     fontSize: '1.8rem',
     lineHeight: 1.2,
-    margin: theme.spacing(1, 10, 0, 0),
+    margin: theme.spacing(1, 0, 0, 0),
   },
   legalMenuWrapper: {},
   legalMenu: {
@@ -193,20 +193,24 @@ const useStyles = makeStyles((theme: Theme) => ({
   socialWrapper: {
     [theme.breakpoints.up('md')]: {
       flexShrink: 0,
-      order: -1,
-      marginRight: theme.spacing(8),
-      width: '38.4rem',
+      marginLeft: theme.spacing(100),
+      // width: '38.4rem',
+      display: 'flex',
+      flexDirection: 'row',
+      flexWrap: 'nowrap',
     },
   },
   socialTitle: {
     fontSize: '1.8rem',
     fontWeight: 400,
     lineHeight: 1.2,
+    marginTop: theme.spacing(1),
   },
   social: {
     display: 'flex',
     flexWrap: 'wrap',
-    marginTop: theme.spacing(6),
+    // marginTop: theme.spacing(6),
+    marginLeft: theme.spacing(6),
     '& a': {
       color: 'inherit',
       display: 'inline-block',
@@ -323,11 +327,10 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
                 </nav>
               )}
             </section>
-          </div>
 
-          <div className={classes.socialDisclaimer}>
             <div className={classes.socialWrapper}>
-              <Typography className={classes.socialTitle}>{t('socials.findUsOn')}</Typography>
+              {/* <Typography className={classes.socialTitle}>{t('socials.findUsOn')}</Typography> */}
+              <div className={classes.socialTitle}>{t('socials.findUsOn')}</div>
               <div className={classes.social}>
                 {footerContent?.twitterLink && (
                   <a
