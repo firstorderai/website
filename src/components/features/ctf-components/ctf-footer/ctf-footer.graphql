@@ -23,8 +23,6 @@ fragment FooterFields on FooterMenuCollection {
     }
     twitterLink
     facebookLink
-    linkedinLink
-    instagramLink
   }
 }
 
