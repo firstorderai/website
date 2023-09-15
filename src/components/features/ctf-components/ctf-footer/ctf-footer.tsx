@@ -356,7 +356,7 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
                     target="_blank"
                     rel="nofollow noreferrer"
                   >
-                    <LinkedIn /> // test
+                    <LinkedIn />
                   </a>
                 )} */}
                 {/* {footerContent?.instagramLink && (
