@@ -49,6 +49,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   submenu: {
     backgroundColor: '#fff',
+    width: 'fit-content',
+    whiteSpace: 'nowrap',
     boxShadow: '0 3px 6px #00000029',
     borderRadius: '14px',
     left: theme.spacing(10 * -1),

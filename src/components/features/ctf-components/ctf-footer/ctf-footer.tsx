@@ -16,7 +16,7 @@ import {
 import { LanguageSelector } from '@src/components/features/language-selector';
 import { Link } from '@src/components/shared/link';
 import { useContentfulContext } from '@src/contentful-context';
-import Logo from '@src/icons/logo-tagline.svg';
+// import Logo from '@src/icons/logo-tagline.svg';
 import { CONTAINER_WIDTH } from '@src/theme';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -125,7 +125,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexShrink: 0,
     // marginBottom: theme.spacing(3),
     marginTop: '0.2rem',
-    marginRight: '3rem',
+    marginRight: '1rem',
     [theme.breakpoints.up('md')]: {
       flexShrink: 0,
       width: '38.4rem',
@@ -143,9 +143,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   copyright: {
-    fontSize: '1.8rem',
+    fontSize: '2rem',
     lineHeight: 1.2,
-    margin: theme.spacing(1, 0, 0, 0),
+    margin: theme.spacing(1.2, 0, 0, 0),
   },
   legalMenuWrapper: {},
   legalMenu: {
@@ -310,7 +310,8 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
         <section className={classes.footerCorporate}>
           <div className={classes.corporateLogoMenu}>
             <div className={classes.corporateLogoContainer}>
-              <Logo className={classes.corporateLogo} />
+              {/* <Logo className={classes.corporateLogo} /> */}
+              <img src="/logo_white.png" alt="FirstOrder.AI" width="267" height="30" />
             </div>
 
             <section className={classes.copyrightAndLegal}>

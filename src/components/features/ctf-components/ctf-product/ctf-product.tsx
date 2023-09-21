@@ -16,28 +16,29 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     maxWidth: '126rem',
-    padding: theme.spacing(19, 0, 19),
+    padding: theme.spacing(10, 0, 10),
     [theme.breakpoints.up('md')]: {
       alignItems: 'center',
       flexDirection: 'row',
-      justifyContent: 'space-between',
+      // justifyContent: 'space-between',
     },
   },
   innerBody: {
     order: 2,
     width: '100%',
+    paddingLeft: '3rem',
 
     [theme.breakpoints.up('md')]: {
-      width: 'calc(50% - 2.5rem)',
+      width: 'calc(50% + 2.5rem)',
     },
   },
   headline: {
     fontSize: '3.2rem',
     maxWidth: '60.4rem',
-    fontWeight: 600,
+    fontWeight: 800,
     lineHeight: 1.39,
     [theme.breakpoints.up('xl')]: {
-      fontSize: '2.375rem',
+      fontSize: '3.8rem',
     },
   },
   body: {
@@ -84,7 +85,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   featuresSection: {
     backgroundColor: '#FCFCFC',
-    padding: theme.spacing(19, 0, 12),
+    padding: theme.spacing(0, 0, 0),
   },
   featureSeparator: {
     backgroundColor: '#707070',
@@ -98,17 +99,17 @@ const useStyles = makeStyles((theme: Theme) => ({
       display: 'flex',
     },
     '&:not(:nth-child(2))': {
-      marginTop: theme.spacing(10),
+      marginTop: theme.spacing(5),
     },
   },
   featureName: {
-    marginBottom: theme.spacing(4),
+    marginBottom: theme.spacing(0),
     marginTop: 0,
     color: '#414D63',
     [theme.breakpoints.up('md')]: {
       flexGrow: 1,
       flexShrink: 0,
-      marginBottom: theme.spacing(10),
+      marginBottom: theme.spacing(0),
       marginRight: theme.spacing(10),
       width: 'auto',
     },
@@ -125,7 +126,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       color: '#414D63',
     },
     '& > div:last-child': {
-      marginBottom: theme.spacing(10),
+      marginBottom: theme.spacing(0),
     },
   },
 }));
