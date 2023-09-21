@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       paddingTop: theme.spacing(16),
     },
     '@media (min-height: 600px)': {
-      minHeight: '59rem',
+      minHeight: '40rem',
     },
   },
   title: {

@@ -125,6 +125,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexShrink: 0,
     // marginBottom: theme.spacing(3),
     marginTop: '0.2rem',
+    marginRight: '3rem',
     [theme.breakpoints.up('md')]: {
       flexShrink: 0,
       width: '38.4rem',
@@ -328,8 +329,7 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
               )}
             </section>
 
-            <div className={classes.socialWrapper}>
-              {/* <Typography className={classes.socialTitle}>{t('socials.findUsOn')}</Typography> */}
+            {/* <div className={classes.socialWrapper}>
               <div className={classes.socialTitle}>{t('socials.findUsOn')}</div>
               <div className={classes.social}>
                 {footerContent?.twitterLink && (
@@ -337,8 +337,7 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
                     href={footerContent.twitterLink}
                     title={t('socials.twitter')}
                     target="_blank"
-                    rel="nofollow noreferrer"
-                  >
+                    rel="nofollow noreferrer">
                     <Twitter />
                   </a>
                 )}
@@ -347,33 +346,30 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
                     href={footerContent.facebookLink}
                     title={t('socials.facebook')}
                     target="_blank"
-                    rel="nofollow noreferrer"
-                  >
+                    rel="nofollow noreferrer">
                     <Facebook />
                   </a>
                 )}
-                {/* {footerContent?.linkedinLink && (
+                {footerContent?.linkedinLink && (
                   <a
                     href={footerContent.linkedinLink}
                     title={t('socials.linkedin')}
                     target="_blank"
-                    rel="nofollow noreferrer"
-                  >
+                    rel="nofollow noreferrer">
                     <LinkedIn />
                   </a>
-                )} */}
-                {/* {footerContent?.instagramLink && (
+                )}
+                {footerContent?.instagramLink && (
                   <a
                     href={footerContent.instagramLink}
                     title={t('socials.instagram')}
                     target="_blank"
-                    rel="nofollow noreferrer"
-                  >
+                    rel="nofollow noreferrer">
                     <Instagram />
                   </a>
-                )} */}
+                )}
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
       </Container>
