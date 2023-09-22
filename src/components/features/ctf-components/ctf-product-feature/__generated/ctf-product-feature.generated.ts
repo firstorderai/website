@@ -10,7 +10,10 @@ export type ProductFeatureFieldsFragment = { __typename: 'TopicProductFeature', 
         ) | null> } } } | null, shortDescription?: { __typename?: 'TopicProductFeatureShortDescription', json: any, links: { __typename?: 'TopicProductFeatureShortDescriptionLinks', assets: { __typename?: 'TopicProductFeatureShortDescriptionAssets', block: Array<(
           { __typename?: 'Asset' }
           & AssetFieldsFragment
-        ) | null> } } } | null };
+        ) | null> } } } | null, featuredImage?: (
+    { __typename?: 'Asset' }
+    & AssetFieldsFragment
+  ) | null };
 
 export type CtfProductFeatureQueryVariables = Types.Exact<{
   id: Types.Scalars['String'];
@@ -50,6 +53,9 @@ export const ProductFeatureFieldsFragmentDoc = `
         }
       }
     }
+  }
+  featuredImage {
+    ...AssetFields
   }
 }
     `;

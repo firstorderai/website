@@ -99,6 +99,7 @@ type AssetLinkingCollections {
   topicBusinessInfoCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsTopicBusinessInfoCollectionOrder], preview: Boolean, skip: Int = 0): TopicBusinessInfoCollection
   topicPersonCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsTopicPersonCollectionOrder], preview: Boolean, skip: Int = 0): TopicPersonCollection
   topicProductCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsTopicProductCollectionOrder], preview: Boolean, skip: Int = 0): TopicProductCollection
+  topicProductFeatureCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsTopicProductFeatureCollectionOrder], preview: Boolean, skip: Int = 0): TopicProductFeatureCollection
 }
 
 enum AssetLinkingCollectionsComponentDuplexCollectionOrder {
@@ -249,6 +250,21 @@ enum AssetLinkingCollectionsTopicProductCollectionOrder {
   name_DESC
   price_ASC
   price_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
+enum AssetLinkingCollectionsTopicProductFeatureCollectionOrder {
+  internalName_ASC
+  internalName_DESC
+  name_ASC
+  name_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -2531,6 +2547,7 @@ Sub-container for product features enabling re-use of generic features across di
 """
 type TopicProductFeature implements Entry {
   contentfulMetadata: ContentfulMetadata!
+  featuredImage(locale: String, preview: Boolean): Asset
   internalName(locale: String): String
   linkedFrom(allowedLocales: [String]): TopicProductFeatureLinkingCollections
   longDescription(locale: String): TopicProductFeatureLongDescription
@@ -2550,6 +2567,7 @@ input TopicProductFeatureFilter {
   AND: [TopicProductFeatureFilter]
   OR: [TopicProductFeatureFilter]
   contentfulMetadata: ContentfulMetadataFilter
+  featuredImage_exists: Boolean
   internalName: String
   internalName_contains: String
   internalName_exists: Boolean
@@ -2839,6 +2857,7 @@ input cfTopicProductFeatureNestedFilter {
   AND: [cfTopicProductFeatureNestedFilter]
   OR: [cfTopicProductFeatureNestedFilter]
   contentfulMetadata: ContentfulMetadataFilter
+  featuredImage_exists: Boolean
   internalName: String
   internalName_contains: String
   internalName_exists: Boolean

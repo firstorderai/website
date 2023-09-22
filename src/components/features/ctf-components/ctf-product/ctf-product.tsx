@@ -1,6 +1,8 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react';
 import { Theme, Container, Typography, Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import Image, { ImageLoader } from 'next/image';
+import queryString from 'query-string';
 import { Fragment } from 'react';
 
 import { ProductFieldsFragment } from './__generated/ctf-product.generated';
@@ -9,6 +11,20 @@ import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
 import LayoutContext, { defaultLayout } from '@src/layout-context';
 
+const contentfulLoader: ImageLoader = ({ src, width, quality }) => {
+  const params: Record<string, string | number> = {};
+
+  if (width) {
+    params.w = width;
+  }
+
+  if (quality) {
+    params.q = quality;
+  }
+
+  return queryString.stringifyUrl({ url: src, query: params });
+};
+
 const useStyles = makeStyles((theme: Theme) => ({
   innerIntroContainer: {
     display: 'flex',
@@ -16,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     maxWidth: '126rem',
-    padding: theme.spacing(10, 0, 10),
+    padding: theme.spacing(5, 0, 5),
     [theme.breakpoints.up('md')]: {
       alignItems: 'center',
       flexDirection: 'row',
@@ -79,6 +95,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: '47rem',
   },
   innerContainer: {
+    paddingTop: '2rem',
     marginLeft: 'auto',
     marginRight: 'auto',
     maxWidth: '77rem',
@@ -88,7 +105,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: theme.spacing(0, 0, 0),
   },
   featureSeparator: {
-    backgroundColor: '#707070',
+    backgroundColor: '#F4F4F4',
     height: '2px',
     '&:first-child': {
       display: 'none',
@@ -97,20 +114,57 @@ const useStyles = makeStyles((theme: Theme) => ({
   featureRow: {
     [theme.breakpoints.up('md')]: {
       display: 'flex',
+      flexDirection: 'row',
     },
     '&:not(:nth-child(2))': {
       marginTop: theme.spacing(5),
     },
+    marginBottom: theme.spacing(5),
   },
-  featureName: {
-    marginBottom: theme.spacing(0),
-    marginTop: 0,
-    color: '#414D63',
+  featureRowReverse: {
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
+      flexDirection: 'row-reverse',
+    },
+    '&:not(:nth-child(2))': {
+      marginTop: theme.spacing(5),
+    },
+    marginBottom: theme.spacing(5),
+  },
+  featureRowLeft: {
+    display: 'flex',
+    flexDirection: 'column',
     [theme.breakpoints.up('md')]: {
       flexGrow: 1,
       flexShrink: 0,
-      marginBottom: theme.spacing(0),
-      marginRight: theme.spacing(10),
+      // marginBottom: theme.spacing(0),
+      marginRight: theme.spacing(2),
+      width: 'auto',
+    },
+  },
+  featureRowLeftReverse: {
+    display: 'flex',
+    flexDirection: 'column',
+    [theme.breakpoints.up('md')]: {
+      flexGrow: 1,
+      flexShrink: 0,
+      // marginBottom: theme.spacing(0),
+      marginLeft: theme.spacing(2),
+      width: 'auto',
+    },
+    textAlign: 'right',
+  },
+  featureName: {
+    // marginBottom: theme.spacing(0),
+    paddingTop: theme.spacing(5),
+    paddingBottom: theme.spacing(2),
+    color: '#414D63',
+    fontWeight: 800,
+    [theme.breakpoints.up('md')]: {
+      flexGrow: 0,
+      flexShrink: 0,
+      // marginBottom: theme.spacing(0),
+      // marginRight: theme.spacing(10),
       width: 'auto',
     },
   },
@@ -118,7 +172,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up('md')]: {
       flexGrow: 0,
       flexShrink: 0,
-      width: '50rem',
+      // width: '50rem',
     },
     '& .MuiTypography-body1': {
       fontSize: '1.8rem',
@@ -126,7 +180,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       color: '#414D63',
     },
     '& > div:last-child': {
-      marginBottom: theme.spacing(0),
+      // marginBottom: theme.spacing(0),
     },
   },
 }));
@@ -143,9 +197,11 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
   const inspectorMode = useContentfulInspectorMode();
   const classes = useStyles();
 
+  featuresCollection?.items.map(i => console.log(i?.featuredImage));
+
   return (
     <>
-      <Container maxWidth={false}>
+      <Container maxWidth={false} style={{ background: '#F4F4F4' }}>
         <div className={classes.innerIntroContainer}>
           <div className={classes.innerBody}>
             {name && (
@@ -191,34 +247,53 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
               <div className={classes.innerContainer}>
                 <Box component="dl">
                   {featuresCollection.items.map(
-                    item =>
+                    (item, i) =>
                       item && (
                         <Fragment key={item.sys.id}>
                           <div className={classes.featureSeparator} />
-                          <div className={classes.featureRow}>
-                            <Typography
-                              variant="h3"
-                              component="dt"
-                              className={classes.featureName}
-                              {...inspectorMode({
-                                entryId: item.sys.id,
-                                fieldId: 'name',
-                              })}
+                          <div
+                            className={i % 2 == 0 ? classes.featureRow : classes.featureRowReverse}
+                          >
+                            <div
+                              className={
+                                i % 2 == 0 ? classes.featureRowLeft : classes.featureRowLeftReverse
+                              }
                             >
-                              {item.name}
-                            </Typography>
-                            <Box component="dd" margin={0} className={classes.featureValue}>
-                              {item.longDescription && (
-                                <div
-                                  {...inspectorMode({
-                                    entryId: item.sys.id,
-                                    fieldId: 'longDescription',
-                                  })}
-                                >
-                                  <CtfRichtext {...item.longDescription} />
-                                </div>
-                              )}
-                            </Box>
+                              <Typography
+                                variant="h3"
+                                component="dt"
+                                className={classes.featureName}
+                                {...inspectorMode({
+                                  entryId: item.sys.id,
+                                  fieldId: 'name',
+                                })}
+                              >
+                                {item.name}
+                              </Typography>
+                              <Box component="dd" margin={0} className={classes.featureValue}>
+                                {item.longDescription && (
+                                  <div
+                                    {...inspectorMode({
+                                      entryId: item.sys.id,
+                                      fieldId: 'longDescription',
+                                    })}
+                                  >
+                                    <CtfRichtext {...item.longDescription} />
+                                  </div>
+                                )}
+                              </Box>
+                            </div>
+                            {item.featuredImage && (
+                              <Image
+                                src={item.featuredImage.url as string}
+                                alt={item.featuredImage.description || ''}
+                                width={item.featuredImage.width as number}
+                                height={item.featuredImage.height as number}
+                                quality={60}
+                                loader={contentfulLoader}
+                                // sizes="(min-width: 355px) 355px, 98vw"
+                              />
+                            )}
                           </div>
                         </Fragment>
                       ),
