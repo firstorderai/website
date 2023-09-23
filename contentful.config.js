@@ -7,19 +7,18 @@ module.exports = {
     cpa_token: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN || '',
   },
   meta: {
-    title: 'Digital banking for the new generation | Colorful Coin',
-    description: `Enjoy premium banking services wherever you go: instant transfers and best exchange rates, exclusive offers and priority customer support. Apply online at ${url
-      .replace('https://', '')
-      .replace('http://', '')}`,
-    url,
+    title: 'FirstOrder.AI',
+    description: `We harness the power of artificial intelligence to drive innovation and create cutting-edge solutions that empower businesses and individuals to thrive in the digital age. Learn more
+    online at ${url.replace('https://', '').replace('http://', '')}`,
+    url: 'https://firstorder.ai',
     image:
-      'https://images.ctfassets.net/w8vf7dk7f259/4bucno7z1xAyVI5MOkU6Pu/ded83d0ec1eb732ae3a81ddab7a18877/fallback-image-03.jpg',
+      'https://images.ctfassets.net/s9fimnml8k09/23dXPo20jgoDmZdGORckcn/acb943ca5ebde1b9b50b635f5dd2c110/logo_color_512.png',
   },
   icon: {
     light:
-      'https://images.ctfassets.net/w8vf7dk7f259/llZXwDCnl9NqdyuVvjn1n/d20cea90225e7f53dfbf8a18a46e972d/gocoin-icon-light.svg',
-    dark: 'https://images.ctfassets.net/w8vf7dk7f259/i9iu6GU6dFWQJJwJzwxCT/952cc3bab415e28f521c22933072a09c/gocoin-icon.svg',
-    width: 66,
-    height: 64,
+      'https://images.ctfassets.net/s9fimnml8k09/3f7NYnyUkEhPVzBj0V74Ii/db28d6b0890db2e6aeccf4a7a516aff6/logo_simple.svg',
+    dark: 'https://images.ctfassets.net/s9fimnml8k09/3f7NYnyUkEhPVzBj0V74Ii/db28d6b0890db2e6aeccf4a7a516aff6/logo_simple.svg',
+    width: 141,
+    height: 155,
   },
 };
