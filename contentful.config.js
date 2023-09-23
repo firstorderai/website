@@ -8,9 +8,9 @@ module.exports = {
   },
   meta: {
     title: 'FirstOrder.AI',
-    description: `We harness the power of artificial intelligence to drive innovation and create cutting-edge solutions that empower businesses and individuals to thrive in the digital age. Learn more
-    online at ${url.replace('https://', '').replace('http://', '')}`,
     url: 'https://firstorder.ai',
+    description: `We harness the power of artificial intelligence to drive innovation and create cutting-edge solutions that empower businesses and individuals to thrive in the digital age. Learn more
+    online at firstorder.ai}`,
     image:
       'https://images.ctfassets.net/s9fimnml8k09/23dXPo20jgoDmZdGORckcn/acb943ca5ebde1b9b50b635f5dd2c110/logo_color_512.png',
   },
