@@ -127,8 +127,8 @@ const useStyles = makeStyles((theme: Theme) => ({
       color: '#414D63',
     },
     '& h1, h2, h3, h4, h5, h6': {
-      marginBottom: theme.spacing(7),
-      marginTop: theme.spacing(10),
+      marginBottom: theme.spacing(3),
+      marginTop: theme.spacing(5),
     },
     '& blockquote': {
       borderLeft: '1px solid #000',

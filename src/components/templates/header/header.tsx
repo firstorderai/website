@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   corporateLogo: {
     display: 'block',
     height: 'auto',
-    paddingTop: '0.5rem',
+    paddingTop: '0.4rem',
     width: '280px',
   },
 }));
@@ -89,7 +89,7 @@ export const Header = (props: HeaderPropsInterface) => {
         >
           <Link href="/" withoutMaterial title={t('common.homepage')}>
             {/* <Logo className={classes.corporateLogo} /> */}
-            <img className={classes.corporateLogo} src="/logo_black.png" alt="FirstOrder.AI" />
+            <img className={classes.corporateLogo} src="/logo_black.svg" alt="FirstOrder.AI" />
           </Link>
           <Box display={{ xs: 'none', md: 'block' }}>
             <div className={classes.menuWrapper}>

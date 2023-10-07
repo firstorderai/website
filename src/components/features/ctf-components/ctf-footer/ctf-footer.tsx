@@ -93,8 +93,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   footerCorporateContainer: {
     backgroundColor: '#212121',
     color: '#fff',
-    paddingBottom: theme.spacing(5),
-    paddingTop: theme.spacing(5),
+    paddingBottom: theme.spacing(2),
+    paddingTop: theme.spacing(2),
   },
   footerCorporate: {
     marginLeft: 'auto',
@@ -124,7 +124,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   corporateLogoContainer: {
     flexShrink: 0,
     // marginBottom: theme.spacing(3),
-    marginTop: '0.2rem',
+    // marginTop: '0.4rem',
+    paddingTop: '0.6rem',
     marginRight: '1rem',
     [theme.breakpoints.up('md')]: {
       flexShrink: 0,
@@ -143,9 +144,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   copyright: {
-    fontSize: '2rem',
+    fontSize: '2.5rem',
     lineHeight: 1.2,
-    margin: theme.spacing(1.2, 0, 0, 0),
+    margin: theme.spacing(2.2, 0, 0, 0),
   },
   legalMenuWrapper: {},
   legalMenu: {
@@ -311,7 +312,7 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
           <div className={classes.corporateLogoMenu}>
             <div className={classes.corporateLogoContainer}>
               {/* <Logo className={classes.corporateLogo} /> */}
-              <img src="/logo_white.png" alt="FirstOrder.AI" width="267" height="30" />
+              <img src="/logo_white.svg" alt="FirstOrder.AI" height="38" />
             </div>
 
             <section className={classes.copyrightAndLegal}>

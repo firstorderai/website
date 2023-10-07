@@ -139,7 +139,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       flexShrink: 0,
       // marginBottom: theme.spacing(0),
       marginRight: theme.spacing(2),
-      width: 'auto',
+      width: '10rem',
     },
   },
   featureRowLeftReverse: {
@@ -150,7 +150,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       flexShrink: 0,
       // marginBottom: theme.spacing(0),
       marginLeft: theme.spacing(2),
-      width: 'auto',
+      width: '10rem',
     },
     textAlign: 'right',
   },
@@ -197,7 +197,7 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
   const inspectorMode = useContentfulInspectorMode();
   const classes = useStyles();
 
-  featuresCollection?.items.map(i => console.log(i?.featuredImage));
+  // featuresCollection?.items.map(i => console.log(i?.featuredImage));
 
   return (
     <>

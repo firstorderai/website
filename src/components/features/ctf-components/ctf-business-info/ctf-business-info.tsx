@@ -11,7 +11,7 @@ import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtex
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    paddingBottom: theme.spacing(18),
+    paddingBottom: theme.spacing(0),
     paddingTop: (props: BusinessInfoFieldsFragment) =>
       props.name || props.shortDescription ? 0 : theme.spacing(18),
     '& .MuiContainer-root + .ComponentInfoBlock': {
@@ -27,12 +27,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: '126.2rem',
   },
   containerNarrow: {
+    marginTop: '0',
     marginRight: 'auto',
     marginLeft: 'auto',
     maxWidth: '77rem',
   },
   hero: {
-    marginBottom: theme.spacing(18),
+    marginBottom: theme.spacing(0),
     position: 'relative',
   },
   heroBg: {
@@ -73,7 +74,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       paddingTop: theme.spacing(16),
     },
     '@media (min-height: 600px)': {
-      minHeight: '40rem',
+      minHeight: '35rem',
     },
   },
   title: {
