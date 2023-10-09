@@ -125,7 +125,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexShrink: 0,
     // marginBottom: theme.spacing(3),
     // marginTop: '0.4rem',
-    paddingTop: '0.6rem',
+    paddingTop: '0.7rem',
     marginRight: '1rem',
     [theme.breakpoints.up('md')]: {
       flexShrink: 0,

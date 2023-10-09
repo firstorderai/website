@@ -34,6 +34,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   hero: {
     marginBottom: theme.spacing(0),
+    paddingTop: theme.spacing(5),
+    paddingBottom: theme.spacing(5),
     position: 'relative',
   },
   heroBg: {
