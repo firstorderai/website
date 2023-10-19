@@ -1,0 +1,11 @@
+{
+    "applinks": {
+        "apps": [],
+        "details":[
+            {
+                "paths": ["/authenticator/*"],
+                "appID": "V7KQH27KZA.ai.firstorder.authenticator"
+            }
+        ]
+    }
+}
