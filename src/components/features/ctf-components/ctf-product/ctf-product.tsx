@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: 'column',
     marginLeft: 'auto',
     marginRight: 'auto',
-    maxWidth: '126rem',
-    padding: theme.spacing(5, 0, 5),
+    maxWidth: '146rem',
+    padding: theme.spacing(5, 15, 5, 15),
     [theme.breakpoints.up('md')]: {
       alignItems: 'center',
       flexDirection: 'row',
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     '& p': {
       fontSize: '2rem',
       [theme.breakpoints.up('xl')]: {
-        fontSize: '2.5rem',
+        fontSize: '2.2rem',
         fontWeight: 400,
         lineHeight: 1.56,
       },

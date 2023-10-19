@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: 'absolute',
     right: 0,
     top: 0,
-    width: '50%',
+    width: '60%',
   },
 
   headline: {
@@ -85,9 +85,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(6),
     maxWidth: '46.9rem',
     '& p': {
-      fontSize: '2.5rem',
+      fontSize: '2.2rem',
       [theme.breakpoints.up('xl')]: {
-        fontSize: '2.5rem',
+        fontSize: '2.2rem',
       },
     },
   },

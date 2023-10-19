@@ -55,8 +55,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   menuItem: {
-    fontSize: '1.8rem',
-    fontWeight: 400,
+    fontSize: '2rem',
+    fontWeight: 420,
     lineHeight: 1.2,
     color: '#1B273A',
     margin: theme.spacing(0, 0, 4),
