@@ -9,5 +9,10 @@
         "appID": "V7KQH27KZA.ai.firstorder.authenticator"
       }
     ]
+  },
+  "webcredentials": {
+    "apps": [
+      "V7KQH27KZA.ai.firstorder.authenticator"
+    ]
   }
 }
