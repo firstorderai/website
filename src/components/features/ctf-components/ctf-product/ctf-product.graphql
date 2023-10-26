@@ -10,6 +10,7 @@ fragment ProductFields on TopicProduct {
   description {
     json
   }
+  downloadLinks
   price
   featuresCollection(limit: 30) {
     items {

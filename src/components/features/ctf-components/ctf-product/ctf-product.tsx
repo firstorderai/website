@@ -48,6 +48,8 @@ const useStyles = makeStyles((theme: Theme) => ({
       width: 'calc(50% + 2.5rem)',
     },
   },
+  downloadLinks: {},
+  downloadLinksIcon: { paddingRight: '1rem' },
   headline: {
     fontSize: '3.2rem',
     maxWidth: '60.4rem',
@@ -88,7 +90,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       justifyContent: 'flex-end',
       marginBottom: 0,
       order: 3,
-      width: 'calc(50% - 2.5rem)',
+      width: 'calc(80%)',
     },
   },
   imageInner: {
@@ -191,8 +193,11 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
     featuredImage,
     description,
     featuresCollection,
+    downloadLinks,
     sys: { id },
   } = props;
+
+  console.log('xxxxxxx', downloadLinks);
 
   const inspectorMode = useContentfulInspectorMode();
   const classes = useStyles();
@@ -225,6 +230,24 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                   <CtfRichtext {...description} className={classes.body} />
                 </div>
               </LayoutContext.Provider>
+            )}
+            {downloadLinks && Object.keys(downloadLinks).length > 0 && (
+              <div className={classes.downloadLinks}>
+                {downloadLinks.appstore && (
+                  <a href={downloadLinks.appstore}>
+                    <img className={classes.downloadLinksIcon} src="/appstore.png" alt="appstore" />
+                  </a>
+                )}
+                {downloadLinks.googleplay && (
+                  <a href={downloadLinks.googleplay}>
+                    <img
+                      className={classes.downloadLinksIcon}
+                      src="/googleplay.png"
+                      alt="googleplay"
+                    />
+                  </a>
+                )}
+              </div>
             )}
           </div>
           {featuredImage && (

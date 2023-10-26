@@ -35,10 +35,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     maxWidth: '125.8rem',
-    minHeight: '70rem',
+    minHeight: '30rem',
     padding: theme.spacing(33, 0, 33),
     position: 'relative',
-    width: '100%',
+    width: '90%',
     '@media (min-height: 91.2em)': {
       padding: theme.spacing(39, 0, 39),
     },
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   partialBgContainer: {
     display: 'none',
     height: '100%',
-    left: '44%',
+    left: '45%',
     maxWidth: '192rem',
     position: 'absolute',
     top: 0,
@@ -66,8 +66,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: 'absolute',
     right: 0,
     top: 0,
-    width: '60%',
+    width: '55%',
   },
+
+  downloadLinks: {},
+  downloadLinksIcon: { paddingRight: '1rem' },
 
   headline: {
     fontSize: '3rem',
@@ -83,7 +86,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 400,
     lineHeight: 1.56,
     marginTop: theme.spacing(6),
-    maxWidth: '46.9rem',
+    maxWidth: '45rem',
     '& p': {
       fontSize: '2.2rem',
       [theme.breakpoints.up('xl')]: {
@@ -109,6 +112,7 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
     colorPalette,
     sys: { id },
     heroSize: heroSizeBoolean,
+    downloadLinks,
   } = props;
   const layout = useLayoutContext();
 
@@ -174,6 +178,20 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
               <CtfRichtext {...bodyText} className={classes.body} />
             </div>
           </LayoutContext.Provider>
+        )}
+        {downloadLinks && Object.keys(downloadLinks).length > 0 && (
+          <div className={classes.downloadLinks}>
+            {downloadLinks.appstore && (
+              <a href={downloadLinks.appstore}>
+                <img className={classes.downloadLinksIcon} src="/appstore.png" alt="appstore" />
+              </a>
+            )}
+            {downloadLinks.googleplay && (
+              <a href={downloadLinks.googleplay}>
+                <img className={classes.downloadLinksIcon} src="/googleplay.png" alt="googleplay" />
+              </a>
+            )}
+          </div>
         )}
         {targetPage && ctaText && (
           <div className={classes.ctaContainer}>

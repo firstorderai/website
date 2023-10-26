@@ -23,6 +23,16 @@ const useStyles = makeStyles((theme: Theme) => ({
   footerContainer: {
     backgroundColor: '#F4F4F4',
   },
+  footerWrapper: {
+    '@media (min-width: 600px)': {
+      paddingLeft: '30px',
+      paddingRight: '30px',
+    },
+    '@media (min-width: 1280px)': {
+      paddingLeft: '75px',
+      paddingRight: '75px',
+    },
+  },
   footer: {
     display: 'flex',
     marginLeft: 'auto',
@@ -40,10 +50,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'flex-start',
     display: 'flex',
     flexWrap: 'wrap',
-    marginLeft: theme.spacing(-8),
   },
   menuColumn: {
-    paddingLeft: theme.spacing(8),
+    paddingRight: '40px',
   },
   menu: {
     listStyle: 'none',
@@ -95,6 +104,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: '#fff',
     paddingBottom: theme.spacing(2),
     paddingTop: theme.spacing(2),
+  },
+  footerCorporateWrapper: {
+    '@media (min-width: 600px)': {
+      paddingLeft: '30px',
+      paddingRight: '30px',
+    },
+    '@media (min-width: 1280px)': {
+      paddingLeft: '75px',
+      paddingRight: '75px',
+    },
   },
   footerCorporate: {
     marginLeft: 'auto',
@@ -268,70 +287,73 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
   return (
     <>
       <Container {...containerProps} maxWidth={false} className={classes.footerContainer}>
-        <footer className={classes.footer}>
-          {footerContent?.menuItemsCollection?.items?.length && (
-            <nav role="navigation" className={classes.menuWrapper}>
-              {footerContent.menuItemsCollection.items.map(
-                menuItem =>
-                  menuItem && (
-                    <div key={menuItem.sys.id} className={classes.menuColumn}>
-                      <ul className={classes.menu}>
-                        <li>
-                          <p
-                            className={classes.menuItem}
-                            {...inspectorMode({
-                              entryId: menuItem.sys.id,
-                              fieldId: 'groupName',
-                              locale,
-                            })}
-                          >
-                            {menuItem.groupName}
-                          </p>
-                          {menuItem.featuredPagesCollection && (
-                            <ul className={classes.submenu}>
-                              {renderMenuGroupLinks(
-                                menuItem.featuredPagesCollection,
-                                classes.submenuItem,
-                              )}
-                            </ul>
-                          )}
-                        </li>
-                      </ul>
-                    </div>
-                  ),
-              )}
-            </nav>
-          )}
-          <section className={classes.footerEndSection}>
-            <LanguageSelector />
-          </section>
-        </footer>
+        <div className={classes.footerWrapper}>
+          <footer className={classes.footer}>
+            {footerContent?.menuItemsCollection?.items?.length && (
+              <nav role="navigation" className={classes.menuWrapper}>
+                {footerContent.menuItemsCollection.items.map(
+                  menuItem =>
+                    menuItem && (
+                      <div key={menuItem.sys.id} className={classes.menuColumn}>
+                        <ul className={classes.menu}>
+                          <li>
+                            <p
+                              className={classes.menuItem}
+                              {...inspectorMode({
+                                entryId: menuItem.sys.id,
+                                fieldId: 'groupName',
+                                locale,
+                              })}
+                            >
+                              {menuItem.groupName}
+                            </p>
+                            {menuItem.featuredPagesCollection && (
+                              <ul className={classes.submenu}>
+                                {renderMenuGroupLinks(
+                                  menuItem.featuredPagesCollection,
+                                  classes.submenuItem,
+                                )}
+                              </ul>
+                            )}
+                          </li>
+                        </ul>
+                      </div>
+                    ),
+                )}
+              </nav>
+            )}
+            <section className={classes.footerEndSection}>
+              <LanguageSelector />
+            </section>
+          </footer>
+        </div>
       </Container>
       <Container maxWidth={false} className={classes.footerCorporateContainer}>
-        <section className={classes.footerCorporate}>
-          <div className={classes.corporateLogoMenu}>
-            <div className={classes.corporateLogoContainer}>
-              {/* <Logo className={classes.corporateLogo} /> */}
-              <img src="/logo_white.svg" alt="FirstOrder.AI" height="38" />
-            </div>
+        <div className={classes.footerCorporateWrapper}>
+          <section className={classes.footerCorporate}>
+            <div className={classes.corporateLogoMenu}>
+              <div className={classes.corporateLogoContainer}>
+                {/* <Logo className={classes.corporateLogo} /> */}
+                <img src="/logo_white.svg" alt="FirstOrder.AI" height="38" />
+              </div>
 
-            <section className={classes.copyrightAndLegal}>
-              <p className={classes.copyright}>
-                {t('legal.copyright', { year: new Date().getFullYear() })}
-              </p>
-              {footerContent?.legalLinks?.featuredPagesCollection?.items?.length && (
-                <nav role="navigation" className={classes.legalMenuWrapper}>
-                  <ul className={classes.legalMenu}>
-                    {renderMenuGroupLinks(
-                      footerContent.legalLinks.featuredPagesCollection,
-                      classes.legalMenuItem,
-                    )}
-                  </ul>
-                </nav>
-              )}
-            </section>
+              <section className={classes.copyrightAndLegal}>
+                <p className={classes.copyright}>
+                  {t('legal.copyright', { year: new Date().getFullYear() })}
+                </p>
+                {footerContent?.legalLinks?.featuredPagesCollection?.items?.length && (
+                  <nav role="navigation" className={classes.legalMenuWrapper}>
+                    <ul className={classes.legalMenu}>
+                      {renderMenuGroupLinks(
+                        footerContent.legalLinks.featuredPagesCollection,
+                        classes.legalMenuItem,
+                      )}
+                    </ul>
+                  </nav>
+                )}
+              </section>
 
-            {/* <div className={classes.socialWrapper}>
+              {/* <div className={classes.socialWrapper}>
               <div className={classes.socialTitle}>{t('socials.findUsOn')}</div>
               <div className={classes.social}>
                 {footerContent?.twitterLink && (
@@ -372,8 +394,9 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
                 )}
               </div>
             </div> */}
-          </div>
-        </section>
+            </div>
+          </section>
+        </div>
       </Container>
     </>
   );

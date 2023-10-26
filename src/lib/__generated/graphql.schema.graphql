@@ -590,6 +590,7 @@ type ComponentHeroBanner implements Entry {
   colorPalette(locale: String): String
   contentfulMetadata: ContentfulMetadata!
   ctaText(locale: String): String
+  downloadLinks(locale: String): JSON
   headline(locale: String): String
   heroSize(locale: String): Boolean
   image(locale: String, preview: Boolean): Asset
@@ -654,6 +655,7 @@ input ComponentHeroBannerFilter {
   ctaText_not: String
   ctaText_not_contains: String
   ctaText_not_in: [String]
+  downloadLinks_exists: Boolean
   headline: String
   headline_contains: String
   headline_exists: Boolean
@@ -2500,6 +2502,7 @@ Container for product-specific information like card definitions, features, bene
 type TopicProduct implements Entry {
   contentfulMetadata: ContentfulMetadata!
   description(locale: String): TopicProductDescription
+  downloadLinks(locale: String): JSON
   featuredImage(locale: String, preview: Boolean): Asset
   featuresCollection(limit: Int = 100, locale: String, order: [TopicProductFeaturesCollectionOrder], preview: Boolean, skip: Int = 0, where: TopicProductFeatureFilter): TopicProductFeaturesCollection
   internalName(locale: String): String
@@ -2709,6 +2712,7 @@ input TopicProductFilter {
   description_contains: String
   description_exists: Boolean
   description_not_contains: String
+  downloadLinks_exists: Boolean
   featuredImage_exists: Boolean
   features: cfTopicProductFeatureNestedFilter
   featuresCollection_exists: Boolean
@@ -2888,6 +2892,7 @@ input cfTopicProductNestedFilter {
   description_contains: String
   description_exists: Boolean
   description_not_contains: String
+  downloadLinks_exists: Boolean
   featuredImage_exists: Boolean
   featuresCollection_exists: Boolean
   internalName: String

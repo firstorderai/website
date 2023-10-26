@@ -208,10 +208,10 @@ const colorfulTheme = createTheme({
           '#__next': {
             display: 'flex',
             flexDirection: 'column',
-          }
+          },
         },
-      }
-    }
+      },
+    },
   },
 });
 
