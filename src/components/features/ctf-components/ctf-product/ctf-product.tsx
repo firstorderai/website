@@ -197,7 +197,7 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
     sys: { id },
   } = props;
 
-  console.log('xxxxxxx', downloadLinks);
+  // console.log('xxxxxxx', downloadLinks);
 
   const inspectorMode = useContentfulInspectorMode();
   const classes = useStyles();

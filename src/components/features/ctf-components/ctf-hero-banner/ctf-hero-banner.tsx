@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'none',
     height: '100%',
     left: '45%',
-    maxWidth: '192rem',
+    maxWidth: '170rem',
     position: 'absolute',
     top: 0,
     transform: 'translateX(-50%)',
