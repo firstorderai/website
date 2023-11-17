@@ -141,8 +141,18 @@ const useStyles = makeStyles((theme: Theme) => ({
       flexShrink: 0,
       // marginBottom: theme.spacing(0),
       marginRight: theme.spacing(2),
-      width: '10rem',
     },
+    width: '70%',
+  },
+  featureText: {
+    width: '90%',
+    marginRight: 'auto',
+    marginLeft: 0,
+  },
+  featureTextReverse: {
+    width: '90%',
+    marginLeft: 'auto',
+    marginRight: 0,
   },
   featureRowLeftReverse: {
     display: 'flex',
@@ -152,8 +162,8 @@ const useStyles = makeStyles((theme: Theme) => ({
       flexShrink: 0,
       // marginBottom: theme.spacing(0),
       marginLeft: theme.spacing(2),
-      width: '10rem',
     },
+    width: '70%',
     textAlign: 'right',
   },
   featureName: {
@@ -282,29 +292,35 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                                 i % 2 == 0 ? classes.featureRowLeft : classes.featureRowLeftReverse
                               }
                             >
-                              <Typography
-                                variant="h3"
-                                component="dt"
-                                className={classes.featureName}
-                                {...inspectorMode({
-                                  entryId: item.sys.id,
-                                  fieldId: 'name',
-                                })}
+                              <div
+                                className={
+                                  i % 2 == 0 ? classes.featureText : classes.featureTextReverse
+                                }
                               >
-                                {item.name}
-                              </Typography>
-                              <Box component="dd" margin={0} className={classes.featureValue}>
-                                {item.longDescription && (
-                                  <div
-                                    {...inspectorMode({
-                                      entryId: item.sys.id,
-                                      fieldId: 'longDescription',
-                                    })}
-                                  >
-                                    <CtfRichtext {...item.longDescription} />
-                                  </div>
-                                )}
-                              </Box>
+                                <Typography
+                                  variant="h3"
+                                  component="dt"
+                                  className={classes.featureName}
+                                  {...inspectorMode({
+                                    entryId: item.sys.id,
+                                    fieldId: 'name',
+                                  })}
+                                >
+                                  {item.name}
+                                </Typography>
+                                <Box component="dd" margin={0} className={classes.featureValue}>
+                                  {item.longDescription && (
+                                    <div
+                                      {...inspectorMode({
+                                        entryId: item.sys.id,
+                                        fieldId: 'longDescription',
+                                      })}
+                                    >
+                                      <CtfRichtext {...item.longDescription} />
+                                    </div>
+                                  )}
+                                </Box>
+                              </div>
                             </div>
                             {item.featuredImage && (
                               <Image
