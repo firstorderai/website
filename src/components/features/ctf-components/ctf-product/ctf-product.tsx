@@ -195,6 +195,11 @@ const useStyles = makeStyles((theme: Theme) => ({
       // marginBottom: theme.spacing(0),
     },
   },
+  featureImage: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 }));
 
 export const CtfProduct = (props: ProductFieldsFragment) => {
@@ -322,17 +327,19 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                                 </Box>
                               </div>
                             </div>
-                            {item.featuredImage && (
-                              <Image
-                                src={item.featuredImage.url as string}
-                                alt={item.featuredImage.description || ''}
-                                width={item.featuredImage.width as number}
-                                height={item.featuredImage.height as number}
-                                quality={60}
-                                loader={contentfulLoader}
-                                // sizes="(min-width: 355px) 355px, 98vw"
-                              />
-                            )}
+                            <div className={classes.featureImage}>
+                              {item.featuredImage && (
+                                <Image
+                                  src={item.featuredImage.url as string}
+                                  alt={item.featuredImage.description || ''}
+                                  width={item.featuredImage.width as number}
+                                  height={item.featuredImage.height as number}
+                                  // quality={60}
+                                  loader={contentfulLoader}
+                                  // sizes="(min-width: 355px) 355px, 98vw"
+                                />
+                              )}
+                            </div>
                           </div>
                         </Fragment>
                       ),
