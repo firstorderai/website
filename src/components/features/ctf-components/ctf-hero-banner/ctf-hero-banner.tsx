@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundRepeat: 'no-repeat',
     height: '100%',
     position: 'absolute',
-    right: 0,
+    right: 60,
     top: 0,
     width: '55%',
   },
@@ -86,6 +86,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 400,
     lineHeight: 1.56,
     marginTop: theme.spacing(6),
+    marginBottom: theme.spacing(6),
     maxWidth: '45rem',
     '& p': {
       fontSize: '2.2rem',

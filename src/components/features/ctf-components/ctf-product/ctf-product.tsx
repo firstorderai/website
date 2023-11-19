@@ -32,8 +32,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     maxWidth: '146rem',
-    padding: theme.spacing(5, 15, 5, 15),
+    padding: theme.spacing(5, 1, 5, 1),
     [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(5, 15, 5, 15),
       alignItems: 'center',
       flexDirection: 'row',
       // justifyContent: 'space-between',
@@ -42,10 +43,13 @@ const useStyles = makeStyles((theme: Theme) => ({
   innerBody: {
     order: 2,
     width: '100%',
-    paddingLeft: '3rem',
+    textAlign: 'center',
 
     [theme.breakpoints.up('md')]: {
       width: 'calc(50% + 2.5rem)',
+      paddingLeft: '3rem',
+      textAlign: 'left',
+      paddingBottom: '10rem',
     },
   },
   downloadLinks: {},
@@ -63,7 +67,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 400,
     lineHeight: 1.52,
     marginTop: theme.spacing(7),
+    marginBottom: theme.spacing(7),
     maxWidth: '51rem',
+
+    [theme.breakpoints.down('md')]: {
+      marginTop: theme.spacing(2),
+      marginBottom: theme.spacing(2),
+    },
 
     '& p': {
       fontSize: '2rem',
@@ -97,14 +107,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: '47rem',
   },
   innerContainer: {
-    paddingTop: '2rem',
+    paddingTop: '1rem',
     marginLeft: 'auto',
     marginRight: 'auto',
     maxWidth: '77rem',
   },
   featuresSection: {
     backgroundColor: '#FCFCFC',
-    padding: theme.spacing(0, 0, 0),
+    padding: theme.spacing(0, 2, 0, 2),
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(0, 0, 0),
+    },
   },
   featureSeparator: {
     backgroundColor: '#F4F4F4',
@@ -114,69 +127,62 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   featureRow: {
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
     [theme.breakpoints.up('md')]: {
       display: 'flex',
       flexDirection: 'row',
-    },
-    '&:not(:nth-child(2))': {
+      gap: '2rem',
       marginTop: theme.spacing(5),
+      marginBottom: theme.spacing(5),
     },
-    marginBottom: theme.spacing(5),
   },
   featureRowReverse: {
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
     [theme.breakpoints.up('md')]: {
       display: 'flex',
       flexDirection: 'row-reverse',
-    },
-    '&:not(:nth-child(2))': {
+      gap: '2rem',
       marginTop: theme.spacing(5),
+      marginBottom: theme.spacing(5),
     },
-    marginBottom: theme.spacing(5),
   },
   featureRowLeft: {
     display: 'flex',
     flexDirection: 'column',
     [theme.breakpoints.up('md')]: {
+      width: '65%',
       flexGrow: 1,
       flexShrink: 0,
-      // marginBottom: theme.spacing(0),
-      marginRight: theme.spacing(2),
     },
-    width: '70%',
-  },
-  featureText: {
-    width: '90%',
-    marginRight: 'auto',
-    marginLeft: 0,
-  },
-  featureTextReverse: {
-    width: '90%',
-    marginLeft: 'auto',
-    marginRight: 0,
   },
   featureRowLeftReverse: {
     display: 'flex',
     flexDirection: 'column',
     [theme.breakpoints.up('md')]: {
+      width: '65%',
       flexGrow: 1,
       flexShrink: 0,
-      // marginBottom: theme.spacing(0),
-      marginLeft: theme.spacing(2),
+      textAlign: 'right',
     },
-    width: '70%',
-    textAlign: 'right',
+  },
+  featureText: {
+    marginRight: 'auto',
+    marginLeft: 0,
+  },
+  featureTextReverse: {
+    marginLeft: 'auto',
+    marginRight: 0,
   },
   featureName: {
-    // marginBottom: theme.spacing(0),
-    paddingTop: theme.spacing(5),
-    paddingBottom: theme.spacing(2),
+    // paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(3),
     color: '#414D63',
     fontWeight: 800,
     [theme.breakpoints.up('md')]: {
       flexGrow: 0,
       flexShrink: 0,
-      // marginBottom: theme.spacing(0),
-      // marginRight: theme.spacing(10),
       width: 'auto',
     },
   },
@@ -184,7 +190,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up('md')]: {
       flexGrow: 0,
       flexShrink: 0,
-      // width: '50rem',
     },
     '& .MuiTypography-body1': {
       fontSize: '1.8rem',
@@ -199,6 +204,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    [theme.breakpoints.down('md')]: {
+      width: '50%',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
   },
 }));
 
@@ -327,8 +337,8 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                                 </Box>
                               </div>
                             </div>
-                            <div className={classes.featureImage}>
-                              {item.featuredImage && (
+                            {item.featuredImage && (
+                              <div className={classes.featureImage}>
                                 <Image
                                   src={item.featuredImage.url as string}
                                   alt={item.featuredImage.description || ''}
@@ -338,8 +348,8 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                                   loader={contentfulLoader}
                                   // sizes="(min-width: 355px) 355px, 98vw"
                                 />
-                              )}
-                            </div>
+                              </div>
+                            )}
                           </div>
                         </Fragment>
                       ),

@@ -39,11 +39,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: 'auto',
     flexWrap: 'wrap',
     maxWidth: `${CONTAINER_WIDTH / 10}rem`,
-    paddingBottom: theme.spacing(5),
-    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(2),
+    paddingTop: theme.spacing(3),
     [theme.breakpoints.up('sm')]: {
       paddingBottom: theme.spacing(4),
-      paddingTop: theme.spacing(10),
+      paddingTop: theme.spacing(6),
     },
   },
   menuWrapper: {
@@ -52,25 +52,36 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexWrap: 'wrap',
   },
   menuColumn: {
-    paddingRight: '40px',
+    [theme.breakpoints.up('sm')]: {
+      paddingRight: '40px',
+    },
   },
   menu: {
     listStyle: 'none',
     margin: theme.spacing(0, 0, 8),
     padding: 0,
     width: '17.2rem',
-    [theme.breakpoints.up('md')]: {
-      marginBottom: 0,
-    },
+    marginBottom: 0,
   },
   menuItem: {
     fontSize: '2rem',
     fontWeight: 420,
     lineHeight: 1.2,
     color: '#1B273A',
-    margin: theme.spacing(0, 0, 4),
+    marginTop: 0,
+    marginBottom: theme.spacing(3),
     [theme.breakpoints.up('sm')]: {
       marginBottom: theme.spacing(5),
+    },
+  },
+  menuItemLink: {
+    fontSize: '1.8rem',
+    lineHeight: 1.2,
+    color: '#1B273A',
+    marginTop: 0,
+    marginBottom: theme.spacing(1),
+    [theme.breakpoints.up('sm')]: {
+      marginBottom: theme.spacing(3),
     },
   },
   submenu: {
@@ -135,37 +146,37 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   corporateLogoMenu: {
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
-      flexWrap: 'wrap',
-    },
+    display: 'flex',
+    alignItems: 'center',
+    maxHeight: '4rem',
+    maxWidth: '100%',
+    gap: '3rem',
   },
   corporateLogoContainer: {
-    flexShrink: 0,
-    // marginBottom: theme.spacing(3),
-    // marginTop: '0.4rem',
-    paddingTop: '0.7rem',
-    marginRight: '1rem',
-    [theme.breakpoints.up('md')]: {
-      flexShrink: 0,
-      width: '38.4rem',
-    },
+    display: 'flex',
+    flexGrow: 1,
+    maxWidth: '100%',
+    // [theme.breakpoints.down('sm')]: {
+    //   maxWidth: '50%',
+    // },
   },
   corporateLogo: {
-    display: 'block',
-    height: 'auto',
     maxWidth: '100%',
-  },
-  copyrightAndLegal: {
-    [theme.breakpoints.up('md')]: {
-      alignItems: 'flex-start',
-      display: 'flex',
+    [theme.breakpoints.up('sm')]: {
+      maxWidth: '220px',
     },
   },
+  copyrightAndLegal: {
+    display: 'flex',
+    flexGrow: 0,
+    flexShrink: 0,
+  },
   copyright: {
+    textAlign: 'right',
     fontSize: '2.5rem',
-    lineHeight: 1.2,
-    margin: theme.spacing(2.2, 0, 0, 0),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.8rem',
+    },
   },
   legalMenuWrapper: {},
   legalMenu: {
@@ -267,7 +278,7 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
             fieldId: 'pageName',
           })}
         >
-          <Link href={href} className={classes.menuItem}>
+          <Link href={href} className={classes.menuItemLink}>
             {linkText}
           </Link>
         </li>
@@ -334,13 +345,13 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
             <div className={classes.corporateLogoMenu}>
               <div className={classes.corporateLogoContainer}>
                 {/* <Logo className={classes.corporateLogo} /> */}
-                <img src="/logo_white.svg" alt="FirstOrder.AI" height="38" />
+                <img src="/logo_white.svg" alt="FirstOrder.AI" className={classes.corporateLogo} />
               </div>
 
               <section className={classes.copyrightAndLegal}>
-                <p className={classes.copyright}>
+                <div className={classes.copyright}>
                   {t('legal.copyright', { year: new Date().getFullYear() })}
-                </p>
+                </div>
                 {footerContent?.legalLinks?.featuredPagesCollection?.items?.length && (
                   <nav role="navigation" className={classes.legalMenuWrapper}>
                     <ul className={classes.legalMenu}>

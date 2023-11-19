@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     listStyle: 'none',
     margin: 0,
     padding: 0,
+    gap: theme.spacing(8),
+    [theme.breakpoints.up('lg')]: {
+      gap: theme.spacing(10),
+    },
   },
   menuItem: {
     alignItems: 'center',
@@ -23,11 +27,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 420,
     height: '8rem',
     lineHeight: 1.9,
-    marginRight: theme.spacing(8),
+    // marginRight: theme.spacing(8),
     position: 'relative',
 
     [theme.breakpoints.up('lg')]: {
-      marginRight: theme.spacing(10),
+      // marginRight: theme.spacing(10),
     },
 
     '& a': {
