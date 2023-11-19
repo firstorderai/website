@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     maxWidth: '125.8rem',
-    minHeight: '30rem',
+    // minHeight: '30rem',
     '@media (min-height: 91.2em)': {
       padding: theme.spacing(39, 0, 39),
     },
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       position: 'relative',
     },
     [theme.breakpoints.down('md')]: {
-      padding: theme.spacing(3, 0, 3),
+      padding: theme.spacing(3, 0, 0),
       position: 'relative',
       textAlign: 'center',
     },
@@ -107,8 +107,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 400,
     lineHeight: 1.56,
     [theme.breakpoints.up('md')]: {
-      marginTop: theme.spacing(6),
-      marginBottom: theme.spacing(6),
+      marginTop: theme.spacing(7),
+      marginBottom: theme.spacing(7),
     },
     [theme.breakpoints.down('md')]: {
       marginTop: theme.spacing(3),
