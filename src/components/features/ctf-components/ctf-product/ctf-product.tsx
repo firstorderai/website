@@ -115,6 +115,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: 'auto',
     maxWidth: '77rem',
   },
+  innerBox: {
+    margin: 0,
+  },
   featuresSection: {
     backgroundColor: '#FCFCFC',
     padding: theme.spacing(0, 2, 0, 2),
@@ -130,25 +133,25 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   featureRow: {
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
     [theme.breakpoints.up('md')]: {
       display: 'flex',
       flexDirection: 'row',
       gap: '2rem',
-      marginTop: theme.spacing(5),
-      marginBottom: theme.spacing(5),
+      paddingTop: theme.spacing(5),
+      paddingBottom: theme.spacing(5),
     },
   },
   featureRowReverse: {
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
     [theme.breakpoints.up('md')]: {
       display: 'flex',
       flexDirection: 'row-reverse',
       gap: '2rem',
-      marginTop: theme.spacing(5),
-      marginBottom: theme.spacing(5),
+      paddingTop: theme.spacing(5),
+      paddingBottom: theme.spacing(5),
     },
   },
   featureRowLeft: {
@@ -296,7 +299,7 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
           <section className={classes.featuresSection}>
             <Container maxWidth={false}>
               <div className={classes.innerContainer}>
-                <Box component="dl">
+                <Box component="dl" className={classes.innerBox}>
                   {featuresCollection.items.map(
                     (item, i) =>
                       item && (
