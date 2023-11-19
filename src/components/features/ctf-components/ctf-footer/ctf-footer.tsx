@@ -115,6 +115,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: '#fff',
     paddingBottom: theme.spacing(2),
     paddingTop: theme.spacing(2),
+    borderStyle: 'solid',
+    border: 0,
+    borderTop: '1px',
+    borderColor: '#F4F4F4',
   },
   footerCorporateWrapper: {
     '@media (min-width: 600px)': {
@@ -165,6 +169,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up('sm')]: {
       maxWidth: '200px',
     },
+    // path: {
+    //   fill: 'black',
+    // },
+    // '@media (prefers-color-scheme: dark)': {
+    //   path: {
+    //     fill: 'white',
+    //   },
+    // },
   },
   copyrightAndLegal: {
     display: 'flex',
