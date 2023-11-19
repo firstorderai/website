@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       width: 'calc(50% + 2.5rem)',
       paddingLeft: '3rem',
       textAlign: 'left',
+      paddingTop: '2rem',
       paddingBottom: '10rem',
     },
   },
@@ -91,7 +92,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   imageContainer: {
-    marginBottom: theme.spacing(10),
     order: 1,
     width: '100%',
 
@@ -101,6 +101,9 @@ const useStyles = makeStyles((theme: Theme) => ({
       marginBottom: 0,
       order: 3,
       width: 'calc(80%)',
+    },
+    [theme.breakpoints.down('md')]: {
+      marginBottom: theme.spacing(3),
     },
   },
   imageInner: {

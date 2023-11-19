@@ -19,6 +19,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     overflow: 'hidden',
     position: 'relative',
+    [theme.breakpoints.up('md')]: {},
+    [theme.breakpoints.down('md')]: {
+      flexDirection: 'column',
+      paddingTop: '2.5rem',
+      paddingBottom: '2.5rem',
+    },
   },
 
   fullScreen: {
@@ -36,44 +42,59 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: 'auto',
     maxWidth: '125.8rem',
     minHeight: '30rem',
-    padding: theme.spacing(33, 0, 33),
-    position: 'relative',
-    width: '90%',
     '@media (min-height: 91.2em)': {
       padding: theme.spacing(39, 0, 39),
+    },
+    [theme.breakpoints.up('md')]: {
+      width: '90%',
+      padding: theme.spacing(17.4, 0, 50),
+      position: 'relative',
+    },
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(3, 0, 3),
+      position: 'relative',
+      textAlign: 'center',
     },
   },
 
   partialBgContainer: {
-    display: 'none',
+    // display: 'none',
     height: '100%',
-    left: '45%',
-    maxWidth: '170rem',
-    position: 'absolute',
-    top: 0,
-    transform: 'translateX(-50%)',
     width: '100%',
     [theme.breakpoints.up('md')]: {
+      maxWidth: '170rem',
+      left: '45%',
+      transform: 'translateX(-50%)',
+      position: 'absolute',
       display: 'block',
     },
+    [theme.breakpoints.down('md')]: {},
   },
 
   partialBg: {
     backgroundSize: 'contain',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
+    width: '100%',
     height: '100%',
-    position: 'absolute',
-    right: 60,
-    top: 0,
-    width: '55%',
+    minHeight: '21.8rem',
+    [theme.breakpoints.up('md')]: {
+      width: '55%',
+      position: 'absolute',
+      right: 60,
+      top: 0,
+    },
+    [theme.breakpoints.down('md')]: {
+      paddingRight: '2rem',
+      paddingLeft: '2rem',
+    },
   },
 
   downloadLinks: {},
   downloadLinksIcon: { paddingRight: '1rem' },
 
   headline: {
-    fontSize: '3rem',
+    fontSize: '3.2rem',
     fontWeight: 800,
     lineHeight: 1.08,
     maxWidth: '44rem',
@@ -85,13 +106,22 @@ const useStyles = makeStyles((theme: Theme) => ({
   body: {
     fontWeight: 400,
     lineHeight: 1.56,
-    marginTop: theme.spacing(6),
-    marginBottom: theme.spacing(6),
+    [theme.breakpoints.up('md')]: {
+      marginTop: theme.spacing(6),
+      marginBottom: theme.spacing(6),
+    },
+    [theme.breakpoints.down('md')]: {
+      marginTop: theme.spacing(3),
+      marginBottom: theme.spacing(3),
+    },
     maxWidth: '45rem',
     '& p': {
       fontSize: '2.2rem',
       [theme.breakpoints.up('xl')]: {
         fontSize: '2.2rem',
+      },
+      [theme.breakpoints.down('md')]: {
+        fontSize: '2rem',
       },
     },
   },

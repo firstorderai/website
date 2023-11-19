@@ -62,6 +62,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: 'auto',
     width: '250px',
   },
+  buttonBox: {
+    transform: 'scale(2)',
+  },
 }));
 
 interface HeaderPropsInterface {
@@ -100,6 +103,7 @@ export const Header = (props: HeaderPropsInterface) => {
         {/* menu button */}
         <Box display={{ md: 'none' }}>
           <IconButton
+            className={classes.buttonBox}
             title={t('navigation.mobileMenuButton')}
             onClick={() => onMenuClick?.()}
             aria-controls="mobile-menu"

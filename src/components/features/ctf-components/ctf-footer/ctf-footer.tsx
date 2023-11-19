@@ -150,7 +150,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'center',
     maxHeight: '4rem',
     maxWidth: '100%',
-    gap: '3rem',
+    gap: '5rem',
   },
   corporateLogoContainer: {
     display: 'flex',
@@ -163,7 +163,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   corporateLogo: {
     maxWidth: '100%',
     [theme.breakpoints.up('sm')]: {
-      maxWidth: '220px',
+      maxWidth: '200px',
     },
   },
   copyrightAndLegal: {
