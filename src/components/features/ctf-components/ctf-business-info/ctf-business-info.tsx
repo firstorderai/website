@@ -66,18 +66,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     maxWidth: '55rem',
-    paddingBottom: theme.spacing(8),
-    paddingTop: theme.spacing(8),
+    minHeight: '20rem',
+    paddingBottom: theme.spacing(4),
+    paddingTop: theme.spacing(4),
     position: 'relative',
     textAlign: 'center',
     zIndex: 1,
     [theme.breakpoints.up('md')]: {
       paddingBottom: theme.spacing(16),
       paddingTop: theme.spacing(16),
+      minHeight: '25rem',
     },
-    '@media (min-height: 600px)': {
-      minHeight: '35rem',
-    },
+    // '@media (min-height: 600px)': {
+    //   minHeight: '35rem',
+    // },
   },
   title: {
     [theme.breakpoints.up('md')]: {
