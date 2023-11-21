@@ -50,6 +50,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'flex-start',
     display: 'flex',
     flexWrap: 'wrap',
+    [theme.breakpoints.down('sm')]: {
+      gap: '2rem',
+    },
   },
   menuColumn: {
     [theme.breakpoints.up('sm')]: {
@@ -60,7 +63,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     listStyle: 'none',
     margin: theme.spacing(0, 0, 8),
     padding: 0,
-    width: '17.2rem',
+    [theme.breakpoints.up('sm')]: {
+      width: '17.2rem',
+    },
     marginBottom: 0,
   },
   menuItem: {
@@ -154,7 +159,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'center',
     maxHeight: '4rem',
     maxWidth: '100%',
-    gap: '5rem',
+    gap: '8rem',
   },
   corporateLogoContainer: {
     display: 'flex',
