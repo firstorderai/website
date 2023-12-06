@@ -13,7 +13,7 @@ export default class CustomDocument extends Document {
     return (
       <Html lang="en" dir="ltr">
         <Head>
-          <meta name="robots" content="noindex, nofollow" />
+          {/* <meta name="robots" content="noindex, nofollow" /> */}
 
           <meta charSet="utf-8" />
           {/* PWA primary color */}
