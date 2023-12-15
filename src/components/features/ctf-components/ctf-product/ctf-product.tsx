@@ -53,15 +53,49 @@ const useStyles = makeStyles((theme: Theme) => ({
       paddingBottom: '10rem',
     },
   },
-  downloadLinks: {},
-  downloadLinksIcon: { paddingRight: '1rem' },
+  downloadLinks: {
+    display: 'flex',
+    flexDirection: 'row',
+    paddingBottom: '1rem',
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'center',
+      paddingBottom: '0.5rem',
+    },
+  },
+  downloadLinksIcon: {
+    width: '17rem',
+    paddingLeft: '0rem',
+    paddingRight: '1rem',
+    [theme.breakpoints.down('md')]: {
+      paddingLeft: '0.5rem',
+      paddingRight: '0.5rem',
+    },
+  },
+  browserExtensionLinks: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: '1rem',
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'center',
+    },
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: '0.5rem',
+    },
+  },
+  browserExtensionLinksIcon: {
+    width: '3rem',
+    filter: 'drop-shadow(2px 1px 1px grey);',
+  },
   headline: {
     fontSize: '3.2rem',
-    maxWidth: '60.4rem',
     fontWeight: 800,
     lineHeight: 1.39,
     [theme.breakpoints.up('xl')]: {
       fontSize: '3.8rem',
+      maxWidth: '60.4rem',
+    },
+    [theme.breakpoints.down('xl')]: {
+      width: '100%',
     },
   },
   body: {
@@ -69,7 +103,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     lineHeight: 1.52,
     marginTop: theme.spacing(7),
     marginBottom: theme.spacing(7),
-    maxWidth: '51rem',
 
     [theme.breakpoints.down('md')]: {
       marginTop: theme.spacing(2),
@@ -82,6 +115,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         fontSize: '2.2rem',
         fontWeight: 400,
         lineHeight: 1.56,
+        maxWidth: '51rem',
       },
     },
   },
@@ -178,8 +212,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: 0,
   },
   featureTextReverse: {
-    marginLeft: 'auto',
-    marginRight: 0,
+    marginRight: 'auto',
+    marginLeft: 0,
+    [theme.breakpoints.up('md')]: {
+      marginLeft: 'auto',
+      marginRight: 0,
+    },
   },
   featureName: {
     // paddingTop: theme.spacing(2),
@@ -225,6 +263,7 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
     description,
     featuresCollection,
     downloadLinks,
+    browserExtensionLinks,
     sys: { id },
   } = props;
 
@@ -262,24 +301,28 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                 </div>
               </LayoutContext.Provider>
             )}
-            {downloadLinks && Object.keys(downloadLinks).length > 0 && (
-              <div className={classes.downloadLinks}>
-                {downloadLinks.appstore && (
-                  <a href={downloadLinks.appstore}>
-                    <img className={classes.downloadLinksIcon} src="/appstore.png" alt="appstore" />
-                  </a>
-                )}
-                {downloadLinks.googleplay && (
-                  <a href={downloadLinks.googleplay}>
-                    <img
-                      className={classes.downloadLinksIcon}
-                      src="/googleplay.png"
-                      alt="googleplay"
-                    />
-                  </a>
-                )}
-              </div>
-            )}
+            <div className={classes.downloadLinks}>
+              {downloadLinks.map(item => (
+                <a href={item.link} key={item.store}>
+                  <img
+                    className={classes.downloadLinksIcon}
+                    src={'/store/' + item.store + '.svg'}
+                    alt={item.store}
+                  />
+                </a>
+              ))}
+            </div>
+            <div className={classes.browserExtensionLinks}>
+              {browserExtensionLinks.map(item => (
+                <a href={item.link} key={item.browser}>
+                  <img
+                    className={classes.browserExtensionLinksIcon}
+                    src={'/browser/' + item.browser + '.svg'}
+                    alt={item.browser}
+                  />
+                </a>
+              ))}
+            </div>
           </div>
           {featuredImage && (
             <div

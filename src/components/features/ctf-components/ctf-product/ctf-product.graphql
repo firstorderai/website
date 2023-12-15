@@ -11,6 +11,7 @@ fragment ProductFields on TopicProduct {
     json
   }
   downloadLinks
+  browserExtensionLinks
   price
   featuresCollection(limit: 30) {
     items {

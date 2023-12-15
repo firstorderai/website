@@ -20,6 +20,7 @@ fragment HeroBannerFields on ComponentHeroBanner {
   heroSize
   colorPalette
   downloadLinks
+  browserExtensionLinks
 }
 
 query CtfHeroBanner($id: String!, $locale: String, $preview: Boolean) {

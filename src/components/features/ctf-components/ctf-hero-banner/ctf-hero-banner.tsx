@@ -90,8 +90,35 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
 
-  downloadLinks: {},
-  downloadLinksIcon: { paddingRight: '1rem' },
+  downloadLinks: {
+    display: 'flex',
+    flexDirection: 'row',
+    paddingBottom: '1rem',
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'center',
+      paddingBottom: '0.5rem',
+    },
+  },
+  downloadLinksIcon: {
+    width: '17rem',
+    paddingLeft: '0.5rem',
+    paddingRight: '0.5rem',
+  },
+  browserExtensionLinks: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: '1rem',
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'center',
+    },
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: '0.5rem',
+    },
+  },
+  browserExtensionLinksIcon: {
+    width: '3rem',
+    filter: 'drop-shadow(2px 1px 1px grey);',
+  },
 
   headline: {
     fontSize: '3.2rem',
@@ -144,6 +171,7 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
     sys: { id },
     heroSize: heroSizeBoolean,
     downloadLinks,
+    browserExtensionLinks,
   } = props;
   const layout = useLayoutContext();
 
@@ -210,20 +238,28 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
             </div>
           </LayoutContext.Provider>
         )}
-        {downloadLinks && Object.keys(downloadLinks).length > 0 && (
-          <div className={classes.downloadLinks}>
-            {downloadLinks.appstore && (
-              <a href={downloadLinks.appstore}>
-                <img className={classes.downloadLinksIcon} src="/appstore.png" alt="appstore" />
-              </a>
-            )}
-            {downloadLinks.googleplay && (
-              <a href={downloadLinks.googleplay}>
-                <img className={classes.downloadLinksIcon} src="/googleplay.png" alt="googleplay" />
-              </a>
-            )}
-          </div>
-        )}
+        <div className={classes.downloadLinks}>
+          {downloadLinks.map(item => (
+            <a href={item.link} key={item.store}>
+              <img
+                className={classes.downloadLinksIcon}
+                src={'/store/' + item.store + '.svg'}
+                alt={item.store}
+              />
+            </a>
+          ))}
+        </div>
+        <div className={classes.browserExtensionLinks}>
+          {browserExtensionLinks.map(item => (
+            <a href={item.link} key={item.browser}>
+              <img
+                className={classes.browserExtensionLinksIcon}
+                src={'/browser/' + item.browser + '.svg'}
+                alt={item.browser}
+              />
+            </a>
+          ))}
+        </div>
         {targetPage && ctaText && (
           <div className={classes.ctaContainer}>
             <PageLink

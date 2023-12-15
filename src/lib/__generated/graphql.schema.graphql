@@ -90,189 +90,16 @@ input AssetFilter {
 }
 
 type AssetLinkingCollections {
-  componentDuplexCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsComponentDuplexCollectionOrder], preview: Boolean, skip: Int = 0): ComponentDuplexCollection
-  componentHeroBannerCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsComponentHeroBannerCollectionOrder], preview: Boolean, skip: Int = 0): ComponentHeroBannerCollection
-  componentInfoBlockCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsComponentInfoBlockCollectionOrder], preview: Boolean, skip: Int = 0): ComponentInfoBlockCollection
-  componentQuoteCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsComponentQuoteCollectionOrder], preview: Boolean, skip: Int = 0): ComponentQuoteCollection
+  componentDuplexCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): ComponentDuplexCollection
+  componentHeroBannerCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): ComponentHeroBannerCollection
+  componentInfoBlockCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): ComponentInfoBlockCollection
+  componentQuoteCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): ComponentQuoteCollection
   entryCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): EntryCollection
-  seoCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsSeoCollectionOrder], preview: Boolean, skip: Int = 0): SeoCollection
-  topicBusinessInfoCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsTopicBusinessInfoCollectionOrder], preview: Boolean, skip: Int = 0): TopicBusinessInfoCollection
-  topicPersonCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsTopicPersonCollectionOrder], preview: Boolean, skip: Int = 0): TopicPersonCollection
-  topicProductCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsTopicProductCollectionOrder], preview: Boolean, skip: Int = 0): TopicProductCollection
-  topicProductFeatureCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsTopicProductFeatureCollectionOrder], preview: Boolean, skip: Int = 0): TopicProductFeatureCollection
-}
-
-enum AssetLinkingCollectionsComponentDuplexCollectionOrder {
-  colorPalette_ASC
-  colorPalette_DESC
-  containerLayout_ASC
-  containerLayout_DESC
-  ctaText_ASC
-  ctaText_DESC
-  headline_ASC
-  headline_DESC
-  imageStyle_ASC
-  imageStyle_DESC
-  internalName_ASC
-  internalName_DESC
-  sys_firstPublishedAt_ASC
-  sys_firstPublishedAt_DESC
-  sys_id_ASC
-  sys_id_DESC
-  sys_publishedAt_ASC
-  sys_publishedAt_DESC
-  sys_publishedVersion_ASC
-  sys_publishedVersion_DESC
-}
-
-enum AssetLinkingCollectionsComponentHeroBannerCollectionOrder {
-  colorPalette_ASC
-  colorPalette_DESC
-  ctaText_ASC
-  ctaText_DESC
-  headline_ASC
-  headline_DESC
-  heroSize_ASC
-  heroSize_DESC
-  imageStyle_ASC
-  imageStyle_DESC
-  internalName_ASC
-  internalName_DESC
-  sys_firstPublishedAt_ASC
-  sys_firstPublishedAt_DESC
-  sys_id_ASC
-  sys_id_DESC
-  sys_publishedAt_ASC
-  sys_publishedAt_DESC
-  sys_publishedVersion_ASC
-  sys_publishedVersion_DESC
-}
-
-enum AssetLinkingCollectionsComponentInfoBlockCollectionOrder {
-  colorPalette_ASC
-  colorPalette_DESC
-  headline_ASC
-  headline_DESC
-  internalName_ASC
-  internalName_DESC
-  subline_ASC
-  subline_DESC
-  sys_firstPublishedAt_ASC
-  sys_firstPublishedAt_DESC
-  sys_id_ASC
-  sys_id_DESC
-  sys_publishedAt_ASC
-  sys_publishedAt_DESC
-  sys_publishedVersion_ASC
-  sys_publishedVersion_DESC
-}
-
-enum AssetLinkingCollectionsComponentQuoteCollectionOrder {
-  colorPalette_ASC
-  colorPalette_DESC
-  imagePosition_ASC
-  imagePosition_DESC
-  internalName_ASC
-  internalName_DESC
-  quoteAlignment_ASC
-  quoteAlignment_DESC
-  sys_firstPublishedAt_ASC
-  sys_firstPublishedAt_DESC
-  sys_id_ASC
-  sys_id_DESC
-  sys_publishedAt_ASC
-  sys_publishedAt_DESC
-  sys_publishedVersion_ASC
-  sys_publishedVersion_DESC
-}
-
-enum AssetLinkingCollectionsSeoCollectionOrder {
-  description_ASC
-  description_DESC
-  name_ASC
-  name_DESC
-  noFollow_ASC
-  noFollow_DESC
-  noIndex_ASC
-  noIndex_DESC
-  sys_firstPublishedAt_ASC
-  sys_firstPublishedAt_DESC
-  sys_id_ASC
-  sys_id_DESC
-  sys_publishedAt_ASC
-  sys_publishedAt_DESC
-  sys_publishedVersion_ASC
-  sys_publishedVersion_DESC
-  title_ASC
-  title_DESC
-}
-
-enum AssetLinkingCollectionsTopicBusinessInfoCollectionOrder {
-  internalName_ASC
-  internalName_DESC
-  name_ASC
-  name_DESC
-  sys_firstPublishedAt_ASC
-  sys_firstPublishedAt_DESC
-  sys_id_ASC
-  sys_id_DESC
-  sys_publishedAt_ASC
-  sys_publishedAt_DESC
-  sys_publishedVersion_ASC
-  sys_publishedVersion_DESC
-}
-
-enum AssetLinkingCollectionsTopicPersonCollectionOrder {
-  cardStyle_ASC
-  cardStyle_DESC
-  internalName_ASC
-  internalName_DESC
-  location_ASC
-  location_DESC
-  name_ASC
-  name_DESC
-  sys_firstPublishedAt_ASC
-  sys_firstPublishedAt_DESC
-  sys_id_ASC
-  sys_id_DESC
-  sys_publishedAt_ASC
-  sys_publishedAt_DESC
-  sys_publishedVersion_ASC
-  sys_publishedVersion_DESC
-  website_ASC
-  website_DESC
-}
-
-enum AssetLinkingCollectionsTopicProductCollectionOrder {
-  internalName_ASC
-  internalName_DESC
-  name_ASC
-  name_DESC
-  price_ASC
-  price_DESC
-  sys_firstPublishedAt_ASC
-  sys_firstPublishedAt_DESC
-  sys_id_ASC
-  sys_id_DESC
-  sys_publishedAt_ASC
-  sys_publishedAt_DESC
-  sys_publishedVersion_ASC
-  sys_publishedVersion_DESC
-}
-
-enum AssetLinkingCollectionsTopicProductFeatureCollectionOrder {
-  internalName_ASC
-  internalName_DESC
-  name_ASC
-  name_DESC
-  sys_firstPublishedAt_ASC
-  sys_firstPublishedAt_DESC
-  sys_id_ASC
-  sys_id_DESC
-  sys_publishedAt_ASC
-  sys_publishedAt_DESC
-  sys_publishedVersion_ASC
-  sys_publishedVersion_DESC
+  seoCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): SeoCollection
+  topicBusinessInfoCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): TopicBusinessInfoCollection
+  topicPersonCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): TopicPersonCollection
+  topicProductCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): TopicProductCollection
+  topicProductFeatureCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): TopicProductFeatureCollection
 }
 
 enum AssetOrder {
@@ -434,6 +261,8 @@ type ComponentCtaSublineLinks {
 
 type ComponentCtaSublineResources {
   block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
 }
 
 union ComponentCtaTargetPage = Page
@@ -480,6 +309,8 @@ type ComponentDuplexBodyTextLinks {
 
 type ComponentDuplexBodyTextResources {
   block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
 }
 
 type ComponentDuplexCollection {
@@ -587,6 +418,7 @@ Full-width container for displaying images and snappy copy; can include an optio
 """
 type ComponentHeroBanner implements Entry {
   bodyText(locale: String): ComponentHeroBannerBodyText
+  browserExtensionLinks(locale: String): JSON
   colorPalette(locale: String): String
   contentfulMetadata: ContentfulMetadata!
   ctaText(locale: String): String
@@ -625,6 +457,8 @@ type ComponentHeroBannerBodyTextLinks {
 
 type ComponentHeroBannerBodyTextResources {
   block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
 }
 
 type ComponentHeroBannerCollection {
@@ -640,6 +474,7 @@ input ComponentHeroBannerFilter {
   bodyText_contains: String
   bodyText_exists: Boolean
   bodyText_not_contains: String
+  browserExtensionLinks_exists: Boolean
   colorPalette: String
   colorPalette_contains: String
   colorPalette_exists: Boolean
@@ -771,6 +606,8 @@ type ComponentInfoBlockBlock1BodyLinks {
 
 type ComponentInfoBlockBlock1BodyResources {
   block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
 }
 
 type ComponentInfoBlockBlock2Body {
@@ -797,6 +634,8 @@ type ComponentInfoBlockBlock2BodyLinks {
 
 type ComponentInfoBlockBlock2BodyResources {
   block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
 }
 
 type ComponentInfoBlockBlock3Body {
@@ -823,6 +662,8 @@ type ComponentInfoBlockBlock3BodyLinks {
 
 type ComponentInfoBlockBlock3BodyResources {
   block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
 }
 
 type ComponentInfoBlockCollection {
@@ -1151,6 +992,8 @@ type ComponentQuoteQuoteLinks {
 
 type ComponentQuoteQuoteResources {
   block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
 }
 
 """
@@ -1191,6 +1034,8 @@ type ComponentTextBlockBodyLinks {
 
 type ComponentTextBlockBodyResources {
   block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
 }
 
 type ComponentTextBlockCollection {
@@ -2302,6 +2147,8 @@ type TopicBusinessInfoBodyLinks {
 
 type TopicBusinessInfoBodyResources {
   block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
 }
 
 type TopicBusinessInfoCollection {
@@ -2420,6 +2267,8 @@ type TopicPersonBioLinks {
 
 type TopicPersonBioResources {
   block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
 }
 
 type TopicPersonCollection {
@@ -2500,6 +2349,7 @@ enum TopicPersonOrder {
 Container for product-specific information like card definitions, features, benefits, prices & more [See type definition](https://app.contentful.com/spaces/s9fimnml8k09/content_types/topicProduct)
 """
 type TopicProduct implements Entry {
+  browserExtensionLinks(locale: String): JSON
   contentfulMetadata: ContentfulMetadata!
   description(locale: String): TopicProductDescription
   downloadLinks(locale: String): JSON
@@ -2543,6 +2393,8 @@ type TopicProductDescriptionLinks {
 
 type TopicProductDescriptionResources {
   block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
 }
 
 """
@@ -2640,6 +2492,8 @@ type TopicProductFeatureLongDescriptionLinks {
 
 type TopicProductFeatureLongDescriptionResources {
   block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
 }
 
 enum TopicProductFeatureOrder {
@@ -2681,6 +2535,8 @@ type TopicProductFeatureShortDescriptionLinks {
 
 type TopicProductFeatureShortDescriptionResources {
   block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
 }
 
 type TopicProductFeaturesCollection {
@@ -2708,6 +2564,7 @@ enum TopicProductFeaturesCollectionOrder {
 input TopicProductFilter {
   AND: [TopicProductFilter]
   OR: [TopicProductFilter]
+  browserExtensionLinks_exists: Boolean
   contentfulMetadata: ContentfulMetadataFilter
   description_contains: String
   description_exists: Boolean
@@ -2888,6 +2745,7 @@ input cfTopicProductFeatureNestedFilter {
 input cfTopicProductNestedFilter {
   AND: [cfTopicProductNestedFilter]
   OR: [cfTopicProductNestedFilter]
+  browserExtensionLinks_exists: Boolean
   contentfulMetadata: ContentfulMetadataFilter
   description_contains: String
   description_exists: Boolean
