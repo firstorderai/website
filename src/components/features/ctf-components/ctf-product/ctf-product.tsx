@@ -94,9 +94,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   headline: {
-    fontSize: '3.2rem',
+    fontSize: '3rem',
     fontWeight: 800,
-    lineHeight: 1.39,
+    lineHeight: 1,
     [theme.breakpoints.up('xl')]: {
       fontSize: '3.8rem',
       maxWidth: '60.4rem',
@@ -108,8 +108,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   body: {
     fontWeight: 400,
     lineHeight: 1.52,
-    marginTop: theme.spacing(7),
-    marginBottom: theme.spacing(7),
+    marginTop: theme.spacing(6),
+    marginBottom: theme.spacing(6),
 
     [theme.breakpoints.down('md')]: {
       marginTop: theme.spacing(2),
