@@ -1,0 +1,30 @@
+{
+  "common": {
+    "homepage": "主页",
+    "logoImageAltText": "Logo"
+  },
+  "price": {
+    "free": "免费"
+  },
+  "navigation": {
+    "mobileMenuButton": "打开菜单"
+  },
+  "time": {
+    "month": "月"
+  },
+  "socials": {
+    "findUsOn": "找到我们",
+    "twitter": "Twitter",
+    "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram"
+  },
+  "legal": {
+    "copyright": "© Copyright {{ year }}"
+  },
+  "error": {
+    "code": "错误码 {{code}}",
+    "componentNotFound": "组件不存在。",
+    "somethingWentWrong": "出错了，请检查URL然后重试"
+  }
+}
