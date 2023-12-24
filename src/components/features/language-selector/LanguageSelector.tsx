@@ -21,6 +21,8 @@ export const LanguageSelector = () => {
     type: 'language',
   });
 
+  console.log('locales: ', locales);
+
   return locales && locales.length > 1 ? (
     <div className={classes.localeMenu}>
       <SvgIcon>

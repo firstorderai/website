@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: '146rem',
     padding: theme.spacing(5, 1, 5, 1),
     [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(5, 15, 5, 15),
+      padding: theme.spacing(10, 15, 10, 15),
       alignItems: 'center',
       flexDirection: 'row',
       // justifyContent: 'space-between',
@@ -46,16 +46,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     textAlign: 'center',
 
     [theme.breakpoints.up('md')]: {
-      width: 'calc(50% + 2.5rem)',
-      paddingLeft: '3rem',
-      textAlign: 'left',
-      paddingTop: '2rem',
+      width: 'calc(40%)',
+      paddingLeft: '2.5rem',
       paddingBottom: '10rem',
+      paddingTop: '1rem',
+      textAlign: 'left',
+      marginRight: '-10rem',
     },
   },
   downloadLinks: {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     paddingBottom: '1rem',
     [theme.breakpoints.down('md')]: {
       justifyContent: 'center',
@@ -63,12 +64,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   downloadLinksIcon: {
-    width: '17rem',
+    height: '4.5rem',
     paddingLeft: '0rem',
     paddingRight: '1rem',
     [theme.breakpoints.down('md')]: {
       paddingLeft: '0.5rem',
       paddingRight: '0.5rem',
+    },
+    '&:hover': {
+      transform: 'scale(1.05)',
     },
   },
   browserExtensionLinks: {
@@ -85,6 +89,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   browserExtensionLinksIcon: {
     width: '3rem',
     filter: 'drop-shadow(2px 1px 1px grey);',
+    '&:hover': {
+      transform: 'scale(1.1)',
+    },
   },
   headline: {
     fontSize: '3.2rem',
