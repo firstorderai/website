@@ -2,24 +2,24 @@
   "buildCommand": "NEXT_PUBLIC_BASE_URL=\"${NEXT_PUBLIC_BASE_URL:-https://$NEXT_PUBLIC_VERCEL_URL}\" yarn build",
   "rewrites": [
     {
-      "source": "/:path*",
+      "source": "/",
       "has": [
         {
           "type": "host",
           "value": "firstorder.cn"
         }
       ],
-      "destination": "/zh-CN/:path*"
+      "destination": "/zh-CN"
     },
     {
-      "source": "/:path*",
+      "source": "/",
       "has": [
         {
           "type": "host",
           "value": "firstorder.com.cn"
         }
       ],
-      "destination": "/zh-CN/:path*"
+      "destination": "/zh-CN"
     }
   ]
 }
