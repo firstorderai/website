@@ -208,6 +208,25 @@ const useStyles = makeStyles((theme: Theme) => ({
       paddingTop: '0rem',
     },
   },
+  app: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    gap: '1.5rem',
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'center',
+    },
+  },
+  appIcon: {
+    width: '8rem',
+    [theme.breakpoints.down('md')]: {
+      width: '6rem',
+    },
+  },
+  appIconInner: {
+    width: '2rem',
+  },
   downloadLinks: {
     display: 'flex',
     flexDirection: 'column',
@@ -247,6 +266,11 @@ const useStyles = makeStyles((theme: Theme) => ({
       transform: 'scale(1.1)',
     },
   },
+  headlineContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 2,
+  },
   headline: {
     fontSize: '3rem',
     fontWeight: 800,
@@ -257,6 +281,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     [theme.breakpoints.down('xl')]: {
       width: '100%',
+    },
+  },
+  subTitle: {
+    fontSize: '1.8rem',
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
     },
   },
   body: {
@@ -432,6 +462,8 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
     heroSize: heroSizeBoolean,
     downloadLinks,
     browserExtensionLinks,
+    subTitle,
+    appIcon,
   } = props;
 
   // console.log('xxxxxxx', downloadLinks);
@@ -453,16 +485,41 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
       >
         <div className={classes.innerIntroContainer}>
           <div className={classes.innerBody}>
-            {name && (
-              <Typography
-                variant="h1"
-                component="h2"
-                className={classes.headline}
-                {...inspectorMode({ entryId: id, fieldId: 'name' })}
-              >
-                {name}
-              </Typography>
-            )}
+            <div className={classes.app}>
+              {appIcon && (
+                <div
+                  className={classes.appIcon}
+                  {...inspectorMode({
+                    entryId: id,
+                    fieldId: 'appIcon',
+                  })}
+                >
+                  <CtfAsset {...appIcon} showDescription={false} className={classes.appIconInner} />
+                </div>
+              )}
+              <div className={classes.headlineContainer}>
+                {name && (
+                  <Typography
+                    variant="h1"
+                    component="h2"
+                    className={classes.headline}
+                    {...inspectorMode({ entryId: id, fieldId: 'name' })}
+                  >
+                    {name}
+                  </Typography>
+                )}
+                {subTitle && (
+                  <Typography
+                    // variant="h1"
+                    // component="h2"
+                    className={classes.subTitle}
+                    {...inspectorMode({ entryId: id, fieldId: 'subTitle' })}
+                  >
+                    {subTitle}
+                  </Typography>
+                )}
+              </div>
+            </div>
             {description && (
               <LayoutContext.Provider value={{ ...defaultLayout, parent: 'product-description' }}>
                 <div

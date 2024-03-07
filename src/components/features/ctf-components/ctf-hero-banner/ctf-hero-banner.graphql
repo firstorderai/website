@@ -21,6 +21,10 @@ fragment HeroBannerFields on ComponentHeroBanner {
   colorPalette
   downloadLinks
   browserExtensionLinks
+  subTitle
+  appIcon {
+    ...AssetFields
+  }
 }
 
 query CtfHeroBanner($id: String!, $locale: String, $preview: Boolean) {

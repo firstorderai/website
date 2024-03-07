@@ -417,6 +417,7 @@ union ComponentDuplexTargetPage = Page
 Full-width container for displaying images and snappy copy; can include an optional CTA [See type definition](https://app.contentful.com/spaces/s9fimnml8k09/content_types/componentHeroBanner)
 """
 type ComponentHeroBanner implements Entry {
+  appIcon(locale: String, preview: Boolean): Asset
   bodyText(locale: String): ComponentHeroBannerBodyText
   browserExtensionLinks(locale: String): JSON
   colorPalette(locale: String): String
@@ -429,6 +430,7 @@ type ComponentHeroBanner implements Entry {
   imageStyle(locale: String): Boolean
   internalName(locale: String): String
   linkedFrom(allowedLocales: [String]): ComponentHeroBannerLinkingCollections
+  subTitle(locale: String): String
   sys: Sys!
   targetPage(locale: String, preview: Boolean): ComponentHeroBannerTargetPage
 }
@@ -471,6 +473,7 @@ type ComponentHeroBannerCollection {
 input ComponentHeroBannerFilter {
   AND: [ComponentHeroBannerFilter]
   OR: [ComponentHeroBannerFilter]
+  appIcon_exists: Boolean
   bodyText_contains: String
   bodyText_exists: Boolean
   bodyText_not_contains: String
@@ -512,6 +515,13 @@ input ComponentHeroBannerFilter {
   internalName_not: String
   internalName_not_contains: String
   internalName_not_in: [String]
+  subTitle: String
+  subTitle_contains: String
+  subTitle_exists: Boolean
+  subTitle_in: [String]
+  subTitle_not: String
+  subTitle_not_contains: String
+  subTitle_not_in: [String]
   sys: SysFilter
   targetPage_exists: Boolean
 }
@@ -551,6 +561,8 @@ enum ComponentHeroBannerOrder {
   imageStyle_DESC
   internalName_ASC
   internalName_DESC
+  subTitle_ASC
+  subTitle_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -1838,6 +1850,8 @@ enum PageLinkingCollectionsComponentHeroBannerCollectionOrder {
   imageStyle_DESC
   internalName_ASC
   internalName_DESC
+  subTitle_ASC
+  subTitle_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
