@@ -864,6 +864,8 @@ enum ComponentProductTableProductsCollectionOrder {
   name_DESC
   price_ASC
   price_DESC
+  subTitle_ASC
+  subTitle_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -1916,6 +1918,7 @@ The 'Quality' type represents quality as whole numeric values between `1` and `1
 scalar Quality
 
 type Query {
+  _node(id: ID!, locale: String, preview: Boolean): _Node
   asset(id: String!, locale: String, preview: Boolean): Asset
   assetCollection(limit: Int = 100, locale: String, order: [AssetOrder], preview: Boolean, skip: Int = 0, where: AssetFilter): AssetCollection
   componentCta(id: String!, locale: String, preview: Boolean): ComponentCta
@@ -2349,6 +2352,7 @@ enum TopicPersonOrder {
 Container for product-specific information like card definitions, features, benefits, prices & more [See type definition](https://app.contentful.com/spaces/s9fimnml8k09/content_types/topicProduct)
 """
 type TopicProduct implements Entry {
+  appIcon(locale: String, preview: Boolean): Asset
   browserExtensionLinks(locale: String): JSON
   contentfulMetadata: ContentfulMetadata!
   description(locale: String): TopicProductDescription
@@ -2359,6 +2363,7 @@ type TopicProduct implements Entry {
   linkedFrom(allowedLocales: [String]): TopicProductLinkingCollections
   name(locale: String): String
   price(locale: String): Float
+  subTitle(locale: String): String
   sys: Sys!
 }
 
@@ -2458,6 +2463,8 @@ enum TopicProductFeatureLinkingCollectionsTopicProductCollectionOrder {
   name_DESC
   price_ASC
   price_DESC
+  subTitle_ASC
+  subTitle_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -2564,6 +2571,7 @@ enum TopicProductFeaturesCollectionOrder {
 input TopicProductFilter {
   AND: [TopicProductFilter]
   OR: [TopicProductFilter]
+  appIcon_exists: Boolean
   browserExtensionLinks_exists: Boolean
   contentfulMetadata: ContentfulMetadataFilter
   description_contains: String
@@ -2596,6 +2604,13 @@ input TopicProductFilter {
   price_lte: Float
   price_not: Float
   price_not_in: [Float]
+  subTitle: String
+  subTitle_contains: String
+  subTitle_exists: Boolean
+  subTitle_in: [String]
+  subTitle_not: String
+  subTitle_not_contains: String
+  subTitle_not_in: [String]
   sys: SysFilter
 }
 
@@ -2646,6 +2661,8 @@ enum TopicProductOrder {
   name_DESC
   price_ASC
   price_DESC
+  subTitle_ASC
+  subTitle_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -2654,6 +2671,10 @@ enum TopicProductOrder {
   sys_publishedAt_DESC
   sys_publishedVersion_ASC
   sys_publishedVersion_DESC
+}
+
+interface _Node {
+  _id: ID!
 }
 
 input cfMenuGroupNestedFilter {
@@ -2745,6 +2766,7 @@ input cfTopicProductFeatureNestedFilter {
 input cfTopicProductNestedFilter {
   AND: [cfTopicProductNestedFilter]
   OR: [cfTopicProductNestedFilter]
+  appIcon_exists: Boolean
   browserExtensionLinks_exists: Boolean
   contentfulMetadata: ContentfulMetadataFilter
   description_contains: String
@@ -2776,6 +2798,13 @@ input cfTopicProductNestedFilter {
   price_lte: Float
   price_not: Float
   price_not_in: [Float]
+  subTitle: String
+  subTitle_contains: String
+  subTitle_exists: Boolean
+  subTitle_in: [String]
+  subTitle_not: String
+  subTitle_not_contains: String
+  subTitle_not_in: [String]
   sys: SysFilter
 }
 

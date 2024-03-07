@@ -4,6 +4,7 @@ fragment ProductFields on TopicProduct {
     id
   }
   name
+  subTitle
   featuredImage {
     ...AssetFields
   }
@@ -11,6 +12,9 @@ fragment ProductFields on TopicProduct {
     json
   }
   downloadLinks
+  appIcon {
+    ...AssetFields
+  }
   browserExtensionLinks
   price
   featuresCollection(limit: 30) {
