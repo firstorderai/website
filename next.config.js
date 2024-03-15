@@ -97,14 +97,14 @@ module.exports = withPlugins(plugins, {
         // if the host is `app.acme.com`,
         // this rewrite will be applied
         {
-          source: '/:path*',
+          source: '/',
           has: [
             {
               type: 'host',
               value: 'authenticator.*',
             },
           ],
-          destination: '/authenticator/:path*',
+          destination: '/authenticator',
         },
       ],
     };
