@@ -4,7 +4,7 @@ import Router from 'next/router';
 export const queryConfig = {
   queryCache: new QueryCache({
     onError: () => {
-      Router.push({ pathname: '/404' });
+      // Router.push({ pathname: '/404' });
     },
   }),
   defaultOptions: {
