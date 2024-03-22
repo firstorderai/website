@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     textAlign: 'center',
 
     [theme.breakpoints.up('md')]: {
-      width: 'calc(40%)',
+      width: 'calc(45%)',
       paddingLeft: '2.5rem',
       paddingBottom: '10rem',
       paddingTop: '1rem',
@@ -122,11 +122,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 800,
     lineHeight: 1,
     [theme.breakpoints.up('xl')]: {
-      fontSize: '3.8rem',
-      maxWidth: '60.4rem',
+      fontSize: '3.3rem',
     },
     [theme.breakpoints.down('xl')]: {
-      // width: '100%',
+      fontSize: '2.8rem',
+    },
+    [theme.breakpoints.down('md')]: {
+      fontSize: '3rem',
     },
   },
   subTitle: {
