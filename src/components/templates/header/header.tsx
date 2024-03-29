@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   corporateLogo: {
     display: 'block',
     height: 'auto',
-    width: '250px',
+    width: '210px',
   },
   buttonBox: {
     transform: 'scale(2)',

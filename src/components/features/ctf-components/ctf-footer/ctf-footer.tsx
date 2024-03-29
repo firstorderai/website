@@ -172,7 +172,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   corporateLogo: {
     maxWidth: '100%',
     [theme.breakpoints.up('sm')]: {
-      maxWidth: '200px',
+      maxWidth: '180px',
     },
     // path: {
     //   fill: 'black',
