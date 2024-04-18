@@ -373,7 +373,7 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                   <img
                     className={classes.downloadLinksIcon}
                     src={'/store/' + item.store + '.svg'}
-                    alt={item.store}
+                    alt={item.alt}
                   />
                 </a>
               ))}
@@ -384,7 +384,7 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                   <img
                     className={classes.browserExtensionLinksIcon}
                     src={'/browser/' + item.browser + '.svg'}
-                    alt={item.browser}
+                    alt={item.alt}
                   />
                 </a>
               ))}
