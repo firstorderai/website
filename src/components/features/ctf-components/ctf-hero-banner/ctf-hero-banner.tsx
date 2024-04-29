@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: '146rem',
     padding: theme.spacing(5, 1, 5, 1),
 
-    [theme.breakpoints.up('lg')]: {},
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing(12, 15, 12, 15),
     },
@@ -354,7 +353,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: '100%',
     padding: '0.5rem',
     '&:hover': {
-      transform: 'scale(1.05)',
+      transform: 'scale(1.15)',
     },
   },
   appLinksIconDisabledLv1: {
@@ -368,7 +367,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: '100%',
     padding: '0.5rem',
     '&:hover': {
-      transform: 'scale(1.05)',
+      transform: 'scale(1.2)',
     },
   },
   appLinksNameDisabledLv1: {
@@ -410,15 +409,11 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
     appIcon,
   } = props;
 
-  console.log('AppLinks', appLinks);
+  // console.log('AppLinks', appLinks);
 
   const colorConfig = getColorConfigFromPalette(colorPalette || '');
   const inspectorMode = useContentfulInspectorMode();
   const classes = useStyles();
-
-  function getAppLink(key, value: any) {
-    return key == 'Android' || key == 'Windows' ? value.link : value[Object.keys(value)[0]].link;
-  }
 
   function getAppLinkImgLv1(name: any, disabled = false) {
     return (
