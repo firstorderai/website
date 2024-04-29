@@ -1,171 +1,13 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react';
 import { Container, Theme, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import clsx from 'clsx';
-import { useMemo } from 'react';
 
 import { HeroBannerFieldsFragment } from './__generated/ctf-hero-banner.generated';
 
 import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-asset';
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
-import { PageLink } from '@src/components/features/page-link';
 import LayoutContext, { defaultLayout, useLayoutContext } from '@src/layout-context';
 import { getColorConfigFromPalette, HEADER_HEIGHT_MD, HEADER_HEIGHT } from '@src/theme';
-
-const useStylesOld = makeStyles((theme: Theme) => ({
-  root: {
-    alignItems: 'center',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    display: 'flex',
-    overflow: 'hidden',
-    position: 'relative',
-    [theme.breakpoints.up('md')]: {},
-    [theme.breakpoints.down('md')]: {
-      flexDirection: 'column',
-      paddingTop: '2.5rem',
-      paddingBottom: '2.5rem',
-    },
-  },
-
-  fullScreen: {
-    minHeight: `calc(100vh - ${HEADER_HEIGHT_MD})`,
-    [theme.breakpoints.up('md')]: {
-      minHeight: `calc(100vh - ${HEADER_HEIGHT})`,
-    },
-    '@media (min-height: 91.2em)': {
-      minHeight: '91.2rem',
-    },
-  },
-
-  innerContainer: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    maxWidth: '125.8rem',
-    // minHeight: '30rem',
-    '@media (min-height: 91.2em)': {
-      padding: theme.spacing(39, 0, 39),
-    },
-    [theme.breakpoints.up('md')]: {
-      width: '90%',
-      padding: theme.spacing(17.4, 0, 50),
-      position: 'relative',
-    },
-    [theme.breakpoints.down('md')]: {
-      padding: theme.spacing(3, 0, 0),
-      position: 'relative',
-      textAlign: 'center',
-    },
-  },
-
-  partialBgContainer: {
-    // display: 'none',
-    height: '100%',
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      maxWidth: '170rem',
-      left: '45%',
-      transform: 'translateX(-50%)',
-      position: 'absolute',
-      display: 'block',
-    },
-    [theme.breakpoints.down('md')]: {},
-  },
-
-  partialBg: {
-    backgroundSize: 'contain',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    width: '100%',
-    height: '100%',
-    minHeight: '21.8rem',
-    [theme.breakpoints.up('md')]: {
-      width: '55%',
-      position: 'absolute',
-      right: 60,
-      top: 0,
-    },
-    [theme.breakpoints.down('md')]: {
-      paddingRight: '2rem',
-      paddingLeft: '2rem',
-    },
-  },
-
-  downloadLinks: {
-    display: 'flex',
-    flexDirection: 'row',
-    paddingBottom: '1rem',
-    [theme.breakpoints.down('md')]: {
-      justifyContent: 'center',
-      paddingBottom: '0.5rem',
-    },
-  },
-  downloadLinksIcon: {
-    width: '17rem',
-    paddingLeft: '0.5rem',
-    paddingRight: '0.5rem',
-    '&:hover': {
-      transform: 'scale(1.05)',
-    },
-  },
-  browserExtensionLinks: {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: '1rem',
-    [theme.breakpoints.down('md')]: {
-      justifyContent: 'center',
-    },
-    [theme.breakpoints.up('md')]: {
-      paddingLeft: '0.5rem',
-    },
-  },
-  browserExtensionLinksIcon: {
-    width: '3rem',
-    filter: 'drop-shadow(2px 1px 1px grey);',
-    '&:hover': {
-      transform: 'scale(1.1)',
-    },
-  },
-
-  headline: {
-    fontSize: '3.2rem',
-    fontWeight: 800,
-    lineHeight: 1.39,
-    [theme.breakpoints.up('xl')]: {
-      fontSize: '3.2rem',
-      maxWidth: '60.4rem',
-    },
-    [theme.breakpoints.down('xl')]: {
-      width: '100%',
-    },
-  },
-
-  body: {
-    fontWeight: 400,
-    lineHeight: 1.56,
-    [theme.breakpoints.up('md')]: {
-      marginTop: theme.spacing(7),
-      marginBottom: theme.spacing(7),
-    },
-    [theme.breakpoints.down('md')]: {
-      marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(3),
-    },
-    maxWidth: '45rem',
-    '& p': {
-      fontSize: '2.2rem',
-      [theme.breakpoints.up('xl')]: {
-        fontSize: '2.2rem',
-      },
-      [theme.breakpoints.down('md')]: {
-        fontSize: '2rem',
-      },
-    },
-  },
-  ctaContainer: {
-    marginTop: theme.spacing(6),
-  },
-}));
 
 const useStyles = makeStyles((theme: Theme) => ({
   innerIntroContainer: {
@@ -176,20 +18,25 @@ const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: '146rem',
     padding: theme.spacing(5, 1, 5, 1),
 
-    [theme.breakpoints.up('lg')]: {
-      // marginTop: '8rem',
-      // marginBottom: '8rem',
-    },
+    [theme.breakpoints.up('lg')]: {},
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing(12, 15, 12, 15),
-      alignItems: 'center',
-      flexDirection: 'row',
-      // marginTop: '5rem',
-      // marginBottom: '5rem',
     },
     [theme.breakpoints.down('md')]: {
       marginTop: '0rem',
       marginBottom: '0rem',
+    },
+  },
+  innerBodyContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+
+    [theme.breakpoints.up('md')]: {
+      alignItems: 'center',
+      flexDirection: 'row',
+    },
+    [theme.breakpoints.up('lg')]: {
+      paddingBottom: '3.5rem',
     },
   },
   innerBody: {
@@ -199,7 +46,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up('md')]: {
       width: 'calc(45%)',
       paddingLeft: '2.5rem',
-      paddingBottom: '10rem',
+      paddingBottom: '3.5rem',
       paddingTop: '1rem',
       textAlign: 'left',
       marginRight: '-10rem',
@@ -447,6 +294,100 @@ const useStyles = makeStyles((theme: Theme) => ({
       marginRight: 'auto',
     },
   },
+
+  //////////////// AppLinks
+  appLinks: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    gap: '1rem',
+    [theme.breakpoints.down('lg')]: {
+      flexDirection: 'column',
+    },
+  },
+  appLinksDivider: {
+    [theme.breakpoints.down('lg')]: {
+      display: 'none',
+    },
+  },
+  appLinksContainerLv1Outer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    gap: '0.2rem',
+    [theme.breakpoints.down('lg')]: {
+      paddingBottom: '1rem',
+    },
+    [theme.breakpoints.down('md')]: {
+      paddingBottom: '0rem',
+    },
+  },
+  appLinksContainerLv1: {
+    width: '10rem',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  appLinksContainerLv2: {
+    width: '8rem',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  appLinksIconContainerLv1: {
+    width: '6rem',
+    height: '6rem',
+    display: 'flex',
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
+  appLinksIconContainerLv2: {
+    width: '4.2rem',
+    height: '4.2rem',
+    display: 'flex',
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
+  appLinksIconLv1: {
+    height: '100%',
+    padding: '0.5rem',
+    '&:hover': {
+      transform: 'scale(1.05)',
+    },
+  },
+  appLinksIconDisabledLv1: {
+    height: '100%',
+    padding: '0.5rem',
+    filter:
+      'invert(99%) sepia(2%) saturate(175%) hue-rotate(219deg) brightness(116%) contrast(88%)',
+    opacity: '0.5',
+  },
+  appLinksIconLv2: {
+    height: '100%',
+    padding: '0.5rem',
+    '&:hover': {
+      transform: 'scale(1.05)',
+    },
+  },
+  appLinksNameDisabledLv1: {
+    fontSize: '1.8rem',
+    fontWeight: 500,
+    color: '#BFBFBF',
+  },
+  appLinksNameLv1: {
+    fontSize: '1.8rem',
+    fontWeight: 500,
+    color: '#414D63',
+  },
+  appLinksNameLv2: {
+    width: '6rem',
+    fontSize: '1.6rem',
+    fontWeight: 400,
+    textAlign: 'center',
+    color: '#414D63',
+  },
 }));
 
 export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
@@ -464,18 +405,35 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
     heroSize: heroSizeBoolean,
     downloadLinks,
     browserExtensionLinks,
+    appLinks,
     subTitle,
     appIcon,
   } = props;
 
-  // console.log('xxxxxxx', downloadLinks);
+  console.log('AppLinks', appLinks);
 
   const colorConfig = getColorConfigFromPalette(colorPalette || '');
-
   const inspectorMode = useContentfulInspectorMode();
   const classes = useStyles();
 
-  // featuresCollection?.items.map(i => console.log(i?.featuredImage));
+  function getAppLink(key, value: any) {
+    return key == 'Android' || key == 'Windows' ? value.link : value[Object.keys(value)[0]].link;
+  }
+
+  function getAppLinkImgLv1(name: any, disabled = false) {
+    return (
+      <img
+        className={disabled ? classes.appLinksIconDisabledLv1 : classes.appLinksIconLv1}
+        src={`/applinks/logo_${name}.svg`}
+        alt={name}
+      />
+    );
+  }
+  function getAppLinkImgLv2(name: any) {
+    return (
+      <img className={classes.appLinksIconLv2} src={`/applinks/logo_${name}.svg`} alt={name} />
+    );
+  }
 
   return (
     <>
@@ -486,210 +444,153 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
         }}
       >
         <div className={classes.innerIntroContainer}>
-          <div className={classes.innerBody}>
-            <div className={classes.app}>
-              {appIcon && (
-                <div
-                  className={classes.appIcon}
-                  {...inspectorMode({
-                    entryId: id,
-                    fieldId: 'appIcon',
-                  })}
-                >
-                  <CtfAsset {...appIcon} showDescription={false} className={classes.appIconInner} />
+          <div className={classes.innerBodyContainer}>
+            <div className={classes.innerBody}>
+              <div className={classes.app}>
+                {appIcon && (
+                  <div
+                    className={classes.appIcon}
+                    {...inspectorMode({
+                      entryId: id,
+                      fieldId: 'appIcon',
+                    })}
+                  >
+                    <CtfAsset
+                      {...appIcon}
+                      showDescription={false}
+                      className={classes.appIconInner}
+                    />
+                  </div>
+                )}
+                <div className={classes.headlineContainer}>
+                  {name && (
+                    <Typography
+                      variant="h1"
+                      component="h2"
+                      className={classes.headline}
+                      {...inspectorMode({ entryId: id, fieldId: 'name' })}
+                    >
+                      {name}
+                    </Typography>
+                  )}
+                  {subTitle && (
+                    <Typography
+                      // variant="h1"
+                      // component="h2"
+                      className={classes.subTitle}
+                      {...inspectorMode({ entryId: id, fieldId: 'subTitle' })}
+                    >
+                      {subTitle}
+                    </Typography>
+                  )}
                 </div>
-              )}
-              <div className={classes.headlineContainer}>
-                {name && (
-                  <Typography
-                    variant="h1"
-                    component="h2"
-                    className={classes.headline}
-                    {...inspectorMode({ entryId: id, fieldId: 'name' })}
-                  >
-                    {name}
-                  </Typography>
-                )}
-                {subTitle && (
-                  <Typography
-                    // variant="h1"
-                    // component="h2"
-                    className={classes.subTitle}
-                    {...inspectorMode({ entryId: id, fieldId: 'subTitle' })}
-                  >
-                    {subTitle}
-                  </Typography>
-                )}
               </div>
+              {description && (
+                <LayoutContext.Provider value={{ ...defaultLayout, parent: 'product-description' }}>
+                  <div
+                    {...inspectorMode({
+                      entryId: id,
+                      fieldId: 'description',
+                    })}
+                  >
+                    <CtfRichtext {...description} className={classes.body} />
+                  </div>
+                </LayoutContext.Provider>
+              )}
+              <div className={classes.downloadLinks}>
+                {downloadLinks.map(item => (
+                  <a href={item.link} key={item.store}>
+                    <img
+                      className={classes.downloadLinksIcon}
+                      src={'/store/' + item.store + '.svg'}
+                      alt={item.alt}
+                    />
+                  </a>
+                ))}
+              </div>
+              {/* <div className={classes.browserExtensionLinks}>
+                {browserExtensionLinks.map(item => (
+                  <a href={item.link} key={item.browser}>
+                    <img
+                      className={classes.browserExtensionLinksIcon}
+                      src={'/browser/' + item.browser + '.svg'}
+                      alt={item.alt}
+                    />
+                  </a>
+                ))}
+              </div> */}
             </div>
-            {description && (
-              <LayoutContext.Provider value={{ ...defaultLayout, parent: 'product-description' }}>
-                <div
-                  {...inspectorMode({
-                    entryId: id,
-                    fieldId: 'description',
-                  })}
-                >
-                  <CtfRichtext {...description} className={classes.body} />
-                </div>
-              </LayoutContext.Provider>
+            {featuredImage && (
+              <div
+                className={classes.imageContainer}
+                {...inspectorMode({
+                  entryId: id,
+                  fieldId: 'featuredImage',
+                })}
+              >
+                <CtfAsset
+                  {...featuredImage}
+                  showDescription={false}
+                  className={classes.imageInner}
+                />
+              </div>
             )}
-            <div className={classes.downloadLinks}>
-              {downloadLinks.map(item => (
-                <a href={item.link} key={item.store}>
-                  <img
-                    className={classes.downloadLinksIcon}
-                    src={'/store/' + item.store + '.svg'}
-                    alt={item.alt}
-                  />
-                </a>
-              ))}
-            </div>
-            <div className={classes.browserExtensionLinks}>
-              {browserExtensionLinks.map(item => (
-                <a href={item.link} key={item.browser}>
-                  <img
-                    className={classes.browserExtensionLinksIcon}
-                    src={'/browser/' + item.browser + '.svg'}
-                    alt={item.alt}
-                  />
-                </a>
-              ))}
-            </div>
           </div>
-          {featuredImage && (
-            <div
-              className={classes.imageContainer}
-              {...inspectorMode({
-                entryId: id,
-                fieldId: 'featuredImage',
+          {appLinks && (
+            <div className={classes.appLinks}>
+              {appLinks.map((item, index) => {
+                console.log(item);
+                const platform = item.platform;
+                const link = item.link;
+                const links = item.links;
+                const isDisabled = !item.links;
+                const imgLv1 = getAppLinkImgLv1(platform, isDisabled);
+                return (
+                  <>
+                    <div className={classes.appLinksContainerLv1Outer}>
+                      <div className={classes.appLinksContainerLv1}>
+                        <div className={classes.appLinksIconContainerLv1}>
+                          {link ? <a href={link}>{imgLv1}</a> : <div>{imgLv1}</div>}
+                        </div>
+                        <div
+                          className={
+                            !isDisabled ? classes.appLinksNameLv1 : classes.appLinksNameDisabledLv1
+                          }
+                        >
+                          {platform}
+                        </div>
+                      </div>
+                      {links &&
+                        links.length > 1 &&
+                        links.map(item => {
+                          const name = item.name;
+                          const alt = item.alt;
+                          const link = item.link;
+                          const imgLv2 = getAppLinkImgLv2(name);
+                          return (
+                            <>
+                              <div className={classes.appLinksContainerLv2}>
+                                <div className={classes.appLinksIconContainerLv2}>
+                                  <a href={link}>{imgLv2}</a>
+                                </div>
+                                <div className={classes.appLinksNameLv2}>{alt ?? name}</div>
+                              </div>
+                            </>
+                          );
+                        })}
+                    </div>
+                    {index != appLinks.length - 1 && (
+                      <>
+                        <img src={'line_divider.svg'} alt="" className={classes.appLinksDivider} />
+                      </>
+                    )}
+                  </>
+                );
               })}
-            >
-              <CtfAsset {...featuredImage} showDescription={false} className={classes.imageInner} />
             </div>
           )}
         </div>
       </Container>
     </>
-  );
-};
-
-export const CtfHeroBannerOld = (props: HeroBannerFieldsFragment) => {
-  const {
-    image,
-    imageStyle: imageStyleBoolean,
-    headline,
-    // Tutorial: uncomment the line below to make the Greeting field available to render
-    // greeting,
-    bodyText,
-    ctaText,
-    targetPage,
-    colorPalette,
-    sys: { id },
-    heroSize: heroSizeBoolean,
-    downloadLinks,
-    browserExtensionLinks,
-  } = props;
-  const layout = useLayoutContext();
-
-  const colorConfig = getColorConfigFromPalette(colorPalette || '');
-  const imageStyle = imageStyleBoolean ? 'partial' : 'full';
-  const heroSize =
-    heroSizeBoolean === null || heroSizeBoolean === true ? 'full_screen' : 'fixed_height';
-  const backgroundImage = useMemo(
-    () =>
-      image
-        ? `${image.url}?w=${imageStyle === 'partial' ? 767 * 2 : layout.containerWidth * 2}`
-        : undefined,
-    [image, imageStyle, layout.containerWidth],
-  );
-  const classes = useStylesOld();
-  const inspectorMode = useContentfulInspectorMode({ entryId: id });
-
-  return (
-    <Container
-      maxWidth={false}
-      className={clsx(classes.root, heroSize === 'full_screen' ? classes.fullScreen : null)}
-      {...inspectorMode({ fieldId: 'image' })}
-      style={{
-        backgroundImage:
-          imageStyle === 'full' && backgroundImage ? `url(${backgroundImage!})` : undefined,
-        backgroundColor: colorConfig.backgroundColor,
-      }}
-    >
-      {imageStyle === 'partial' && backgroundImage && (
-        <div className={classes.partialBgContainer}>
-          <div
-            className={classes.partialBg}
-            style={{
-              backgroundImage: `url(${backgroundImage!})`,
-            }}
-          />
-        </div>
-      )}
-      <div className={classes.innerContainer}>
-        {/* Tutorial: uncomment this block to render the Greeting field value
-        {greeting && (
-          <Typography>
-            {greeting}
-          </Typography>
-        )}
-        */}
-        {headline && (
-          <Typography
-            variant="h1"
-            className={classes.headline}
-            style={{ color: colorConfig.headlineColor }}
-            {...inspectorMode({ fieldId: 'headline' })}
-          >
-            {headline}
-          </Typography>
-        )}
-        {bodyText && (
-          <LayoutContext.Provider value={{ ...defaultLayout, parent: 'hero-banner-body' }}>
-            <div
-              style={{ color: colorConfig.textColor }}
-              {...inspectorMode({ fieldId: 'bodyText' })}
-            >
-              <CtfRichtext {...bodyText} className={classes.body} />
-            </div>
-          </LayoutContext.Provider>
-        )}
-        <div className={classes.downloadLinks}>
-          {downloadLinks.map(item => (
-            <a href={item.link} key={item.store}>
-              <img
-                className={classes.downloadLinksIcon}
-                src={'/store/' + item.store + '.svg'}
-                alt={item.alt}
-              />
-            </a>
-          ))}
-        </div>
-        <div className={classes.browserExtensionLinks}>
-          {browserExtensionLinks.map(item => (
-            <a href={item.link} key={item.browser}>
-              <img
-                className={classes.browserExtensionLinksIcon}
-                src={'/browser/' + item.browser + '.svg'}
-                alt={item.alt}
-              />
-            </a>
-          ))}
-        </div>
-        {targetPage && ctaText && (
-          <div className={classes.ctaContainer}>
-            <PageLink
-              page={targetPage}
-              variant="contained"
-              color={colorConfig.buttonColor}
-              isButton
-            >
-              {ctaText}
-            </PageLink>
-          </div>
-        )}
-      </div>
-    </Container>
   );
 };

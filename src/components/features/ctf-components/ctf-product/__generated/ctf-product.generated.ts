@@ -6,7 +6,7 @@ import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.ge
 import { ProductFeatureFieldsFragmentDoc } from '../../ctf-product-feature/__generated/ctf-product-feature.generated';
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
-export type ProductFieldsFragment = { __typename: 'TopicProduct', name?: string | null, subTitle?: string | null, downloadLinks?: any | null, browserExtensionLinks?: any | null, price?: number | null, sys: { __typename?: 'Sys', id: string }, featuredImage?: (
+export type ProductFieldsFragment = { __typename: 'TopicProduct', name?: string | null, subTitle?: string | null, downloadLinks?: any | null, browserExtensionLinks?: any | null, appLinks?: any | null, price?: number | null, sys: { __typename?: 'Sys', id: string }, featuredImage?: (
     { __typename?: 'Asset' }
     & AssetFieldsFragment
   ) | null, description?: { __typename?: 'TopicProductDescription', json: any } | null, appIcon?: (
@@ -48,6 +48,7 @@ export const ProductFieldsFragmentDoc = `
     ...AssetFields
   }
   browserExtensionLinks
+  appLinks
   price
   featuresCollection(limit: 30) {
     items {

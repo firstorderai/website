@@ -21,6 +21,7 @@ fragment HeroBannerFields on ComponentHeroBanner {
   colorPalette
   downloadLinks
   browserExtensionLinks
+  appLinks
   subTitle
   appIcon {
     ...AssetFields

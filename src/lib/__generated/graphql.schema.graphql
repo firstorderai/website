@@ -260,9 +260,21 @@ type ComponentCtaSublineLinks {
 }
 
 type ComponentCtaSublineResources {
-  block: [ResourceLink!]!
-  hyperlink: [ResourceLink!]!
-  inline: [ResourceLink!]!
+  block: [ComponentCtaSublineResourcesBlock!]!
+  hyperlink: [ComponentCtaSublineResourcesHyperlink!]!
+  inline: [ComponentCtaSublineResourcesInline!]!
+}
+
+type ComponentCtaSublineResourcesBlock implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentCtaSublineResourcesHyperlink implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentCtaSublineResourcesInline implements ResourceLink {
+  sys: ResourceSys!
 }
 
 union ComponentCtaTargetPage = Page
@@ -308,9 +320,21 @@ type ComponentDuplexBodyTextLinks {
 }
 
 type ComponentDuplexBodyTextResources {
-  block: [ResourceLink!]!
-  hyperlink: [ResourceLink!]!
-  inline: [ResourceLink!]!
+  block: [ComponentDuplexBodyTextResourcesBlock!]!
+  hyperlink: [ComponentDuplexBodyTextResourcesHyperlink!]!
+  inline: [ComponentDuplexBodyTextResourcesInline!]!
+}
+
+type ComponentDuplexBodyTextResourcesBlock implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentDuplexBodyTextResourcesHyperlink implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentDuplexBodyTextResourcesInline implements ResourceLink {
+  sys: ResourceSys!
 }
 
 type ComponentDuplexCollection {
@@ -418,6 +442,7 @@ Full-width container for displaying images and snappy copy; can include an optio
 """
 type ComponentHeroBanner implements Entry {
   appIcon(locale: String, preview: Boolean): Asset
+  appLinks(locale: String): JSON
   bodyText(locale: String): ComponentHeroBannerBodyText
   browserExtensionLinks(locale: String): JSON
   colorPalette(locale: String): String
@@ -458,9 +483,21 @@ type ComponentHeroBannerBodyTextLinks {
 }
 
 type ComponentHeroBannerBodyTextResources {
-  block: [ResourceLink!]!
-  hyperlink: [ResourceLink!]!
-  inline: [ResourceLink!]!
+  block: [ComponentHeroBannerBodyTextResourcesBlock!]!
+  hyperlink: [ComponentHeroBannerBodyTextResourcesHyperlink!]!
+  inline: [ComponentHeroBannerBodyTextResourcesInline!]!
+}
+
+type ComponentHeroBannerBodyTextResourcesBlock implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentHeroBannerBodyTextResourcesHyperlink implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentHeroBannerBodyTextResourcesInline implements ResourceLink {
+  sys: ResourceSys!
 }
 
 type ComponentHeroBannerCollection {
@@ -474,6 +511,7 @@ input ComponentHeroBannerFilter {
   AND: [ComponentHeroBannerFilter]
   OR: [ComponentHeroBannerFilter]
   appIcon_exists: Boolean
+  appLinks_exists: Boolean
   bodyText_contains: String
   bodyText_exists: Boolean
   bodyText_not_contains: String
@@ -617,9 +655,21 @@ type ComponentInfoBlockBlock1BodyLinks {
 }
 
 type ComponentInfoBlockBlock1BodyResources {
-  block: [ResourceLink!]!
-  hyperlink: [ResourceLink!]!
-  inline: [ResourceLink!]!
+  block: [ComponentInfoBlockBlock1BodyResourcesBlock!]!
+  hyperlink: [ComponentInfoBlockBlock1BodyResourcesHyperlink!]!
+  inline: [ComponentInfoBlockBlock1BodyResourcesInline!]!
+}
+
+type ComponentInfoBlockBlock1BodyResourcesBlock implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentInfoBlockBlock1BodyResourcesHyperlink implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentInfoBlockBlock1BodyResourcesInline implements ResourceLink {
+  sys: ResourceSys!
 }
 
 type ComponentInfoBlockBlock2Body {
@@ -645,9 +695,21 @@ type ComponentInfoBlockBlock2BodyLinks {
 }
 
 type ComponentInfoBlockBlock2BodyResources {
-  block: [ResourceLink!]!
-  hyperlink: [ResourceLink!]!
-  inline: [ResourceLink!]!
+  block: [ComponentInfoBlockBlock2BodyResourcesBlock!]!
+  hyperlink: [ComponentInfoBlockBlock2BodyResourcesHyperlink!]!
+  inline: [ComponentInfoBlockBlock2BodyResourcesInline!]!
+}
+
+type ComponentInfoBlockBlock2BodyResourcesBlock implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentInfoBlockBlock2BodyResourcesHyperlink implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentInfoBlockBlock2BodyResourcesInline implements ResourceLink {
+  sys: ResourceSys!
 }
 
 type ComponentInfoBlockBlock3Body {
@@ -673,9 +735,21 @@ type ComponentInfoBlockBlock3BodyLinks {
 }
 
 type ComponentInfoBlockBlock3BodyResources {
-  block: [ResourceLink!]!
-  hyperlink: [ResourceLink!]!
-  inline: [ResourceLink!]!
+  block: [ComponentInfoBlockBlock3BodyResourcesBlock!]!
+  hyperlink: [ComponentInfoBlockBlock3BodyResourcesHyperlink!]!
+  inline: [ComponentInfoBlockBlock3BodyResourcesInline!]!
+}
+
+type ComponentInfoBlockBlock3BodyResourcesBlock implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentInfoBlockBlock3BodyResourcesHyperlink implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentInfoBlockBlock3BodyResourcesInline implements ResourceLink {
+  sys: ResourceSys!
 }
 
 type ComponentInfoBlockCollection {
@@ -1005,9 +1079,21 @@ type ComponentQuoteQuoteLinks {
 }
 
 type ComponentQuoteQuoteResources {
-  block: [ResourceLink!]!
-  hyperlink: [ResourceLink!]!
-  inline: [ResourceLink!]!
+  block: [ComponentQuoteQuoteResourcesBlock!]!
+  hyperlink: [ComponentQuoteQuoteResourcesHyperlink!]!
+  inline: [ComponentQuoteQuoteResourcesInline!]!
+}
+
+type ComponentQuoteQuoteResourcesBlock implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentQuoteQuoteResourcesHyperlink implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentQuoteQuoteResourcesInline implements ResourceLink {
+  sys: ResourceSys!
 }
 
 """
@@ -1047,9 +1133,21 @@ type ComponentTextBlockBodyLinks {
 }
 
 type ComponentTextBlockBodyResources {
-  block: [ResourceLink!]!
-  hyperlink: [ResourceLink!]!
-  inline: [ResourceLink!]!
+  block: [ComponentTextBlockBodyResourcesBlock!]!
+  hyperlink: [ComponentTextBlockBodyResourcesHyperlink!]!
+  inline: [ComponentTextBlockBodyResourcesInline!]!
+}
+
+type ComponentTextBlockBodyResourcesBlock implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentTextBlockBodyResourcesHyperlink implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ComponentTextBlockBodyResourcesInline implements ResourceLink {
+  sys: ResourceSys!
 }
 
 type ComponentTextBlockCollection {
@@ -1970,13 +2068,12 @@ type Query {
   topicProductFeatureCollection(limit: Int = 100, locale: String, order: [TopicProductFeatureOrder], preview: Boolean, skip: Int = 0, where: TopicProductFeatureFilter): TopicProductFeatureCollection
 }
 
-type ResourceLink {
+interface ResourceLink {
   sys: ResourceSys!
 }
 
 type ResourceSys {
   linkType: String!
-  type: String!
   urn: String!
 }
 
@@ -2163,9 +2260,21 @@ type TopicBusinessInfoBodyLinks {
 }
 
 type TopicBusinessInfoBodyResources {
-  block: [ResourceLink!]!
-  hyperlink: [ResourceLink!]!
-  inline: [ResourceLink!]!
+  block: [TopicBusinessInfoBodyResourcesBlock!]!
+  hyperlink: [TopicBusinessInfoBodyResourcesHyperlink!]!
+  inline: [TopicBusinessInfoBodyResourcesInline!]!
+}
+
+type TopicBusinessInfoBodyResourcesBlock implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type TopicBusinessInfoBodyResourcesHyperlink implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type TopicBusinessInfoBodyResourcesInline implements ResourceLink {
+  sys: ResourceSys!
 }
 
 type TopicBusinessInfoCollection {
@@ -2283,9 +2392,21 @@ type TopicPersonBioLinks {
 }
 
 type TopicPersonBioResources {
-  block: [ResourceLink!]!
-  hyperlink: [ResourceLink!]!
-  inline: [ResourceLink!]!
+  block: [TopicPersonBioResourcesBlock!]!
+  hyperlink: [TopicPersonBioResourcesHyperlink!]!
+  inline: [TopicPersonBioResourcesInline!]!
+}
+
+type TopicPersonBioResourcesBlock implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type TopicPersonBioResourcesHyperlink implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type TopicPersonBioResourcesInline implements ResourceLink {
+  sys: ResourceSys!
 }
 
 type TopicPersonCollection {
@@ -2367,6 +2488,7 @@ Container for product-specific information like card definitions, features, bene
 """
 type TopicProduct implements Entry {
   appIcon(locale: String, preview: Boolean): Asset
+  appLinks(locale: String): JSON
   browserExtensionLinks(locale: String): JSON
   contentfulMetadata: ContentfulMetadata!
   description(locale: String): TopicProductDescription
@@ -2411,9 +2533,21 @@ type TopicProductDescriptionLinks {
 }
 
 type TopicProductDescriptionResources {
-  block: [ResourceLink!]!
-  hyperlink: [ResourceLink!]!
-  inline: [ResourceLink!]!
+  block: [TopicProductDescriptionResourcesBlock!]!
+  hyperlink: [TopicProductDescriptionResourcesHyperlink!]!
+  inline: [TopicProductDescriptionResourcesInline!]!
+}
+
+type TopicProductDescriptionResourcesBlock implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type TopicProductDescriptionResourcesHyperlink implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type TopicProductDescriptionResourcesInline implements ResourceLink {
+  sys: ResourceSys!
 }
 
 """
@@ -2512,9 +2646,21 @@ type TopicProductFeatureLongDescriptionLinks {
 }
 
 type TopicProductFeatureLongDescriptionResources {
-  block: [ResourceLink!]!
-  hyperlink: [ResourceLink!]!
-  inline: [ResourceLink!]!
+  block: [TopicProductFeatureLongDescriptionResourcesBlock!]!
+  hyperlink: [TopicProductFeatureLongDescriptionResourcesHyperlink!]!
+  inline: [TopicProductFeatureLongDescriptionResourcesInline!]!
+}
+
+type TopicProductFeatureLongDescriptionResourcesBlock implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type TopicProductFeatureLongDescriptionResourcesHyperlink implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type TopicProductFeatureLongDescriptionResourcesInline implements ResourceLink {
+  sys: ResourceSys!
 }
 
 enum TopicProductFeatureOrder {
@@ -2555,9 +2701,21 @@ type TopicProductFeatureShortDescriptionLinks {
 }
 
 type TopicProductFeatureShortDescriptionResources {
-  block: [ResourceLink!]!
-  hyperlink: [ResourceLink!]!
-  inline: [ResourceLink!]!
+  block: [TopicProductFeatureShortDescriptionResourcesBlock!]!
+  hyperlink: [TopicProductFeatureShortDescriptionResourcesHyperlink!]!
+  inline: [TopicProductFeatureShortDescriptionResourcesInline!]!
+}
+
+type TopicProductFeatureShortDescriptionResourcesBlock implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type TopicProductFeatureShortDescriptionResourcesHyperlink implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type TopicProductFeatureShortDescriptionResourcesInline implements ResourceLink {
+  sys: ResourceSys!
 }
 
 type TopicProductFeaturesCollection {
@@ -2586,6 +2744,7 @@ input TopicProductFilter {
   AND: [TopicProductFilter]
   OR: [TopicProductFilter]
   appIcon_exists: Boolean
+  appLinks_exists: Boolean
   browserExtensionLinks_exists: Boolean
   contentfulMetadata: ContentfulMetadataFilter
   description_contains: String
@@ -2781,6 +2940,7 @@ input cfTopicProductNestedFilter {
   AND: [cfTopicProductNestedFilter]
   OR: [cfTopicProductNestedFilter]
   appIcon_exists: Boolean
+  appLinks_exists: Boolean
   browserExtensionLinks_exists: Boolean
   contentfulMetadata: ContentfulMetadataFilter
   description_contains: String

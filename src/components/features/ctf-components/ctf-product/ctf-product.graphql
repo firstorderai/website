@@ -16,6 +16,7 @@ fragment ProductFields on TopicProduct {
     ...AssetFields
   }
   browserExtensionLinks
+  appLinks
   price
   featuresCollection(limit: 30) {
     items {
