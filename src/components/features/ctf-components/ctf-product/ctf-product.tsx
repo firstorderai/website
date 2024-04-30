@@ -315,11 +315,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'space-evenly',
     gap: '1rem',
-    [theme.breakpoints.down('lg')]: {
-      flexDirection: 'column',
-    },
+    flexWrap: 'wrap',
   },
   appLinksDivider: {
     [theme.breakpoints.down('lg')]: {
@@ -330,8 +328,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'space-evenly',
     gap: '0.2rem',
+    flexWrap: 'wrap',
     [theme.breakpoints.down('lg')]: {
       paddingBottom: '1rem',
     },
