@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     maxWidth: '146rem',
-    padding: theme.spacing(5, 1, 1, 1),
+    padding: theme.spacing(5, 1, 2, 1),
 
     [theme.breakpoints.up('lg')]: {
       padding: theme.spacing(12, 15, 5, 15),
@@ -89,6 +89,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: '4.5rem',
     paddingLeft: '0rem',
     paddingRight: '1rem',
+    [theme.breakpoints.down('md')]: {
+      height: '4rem',
+    },
+    [theme.breakpoints.down('sm')]: {
+      height: '3.5rem',
+    },
     [theme.breakpoints.down('lg')]: {
       paddingLeft: '0.5rem',
       paddingRight: '0.5rem',
@@ -193,7 +199,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     [theme.breakpoints.down('lg')]: {
       marginBottom: theme.spacing(3),
-      width: '80%',
+      width: '85%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '95%',
     },
   },
   imageInner: {

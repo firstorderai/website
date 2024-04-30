@@ -78,6 +78,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up('sm')]: {
       marginBottom: theme.spacing(5),
     },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.5rem',
+    },
   },
   menuItemLink: {
     fontSize: '1.8rem',
@@ -87,6 +90,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: theme.spacing(1),
     [theme.breakpoints.up('sm')]: {
       marginBottom: theme.spacing(3),
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.3rem',
     },
   },
   submenu: {
