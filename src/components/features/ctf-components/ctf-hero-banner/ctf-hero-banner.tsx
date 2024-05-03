@@ -574,7 +574,7 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
           {appLinks && (
             <div className={classes.appLinks}>
               {appLinks.map((item, index) => {
-                console.log(item);
+                // console.log(item);
                 const platform = item.platform;
                 const link = item.link;
                 const links = item.links;
