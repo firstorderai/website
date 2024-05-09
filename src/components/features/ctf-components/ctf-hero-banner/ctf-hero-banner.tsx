@@ -62,11 +62,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down('lg')]: {
       justifyContent: 'center',
     },
+    [theme.breakpoints.down('sm')]: {
+      gap: '1rem',
+    },
   },
   appIcon: {
     width: '8rem',
     [theme.breakpoints.down('md')]: {
       width: '6rem',
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '4.5rem',
     },
   },
   appIconInner: {
@@ -82,7 +88,8 @@ const useStyles = makeStyles((theme: Theme) => ({
       flexDirection: 'row',
     },
     [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column',
+      // flexDirection: 'column',
+      flexWrap: 'wrap',
     },
   },
   downloadLinksIcon: {
@@ -202,7 +209,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       width: '85%',
     },
     [theme.breakpoints.down('sm')]: {
-      width: '95%',
+      width: '85%',
     },
   },
   imageInner: {
@@ -388,6 +395,11 @@ const useStyles = makeStyles((theme: Theme) => ({
       width: '3rem',
       height: '3rem',
     },
+  },
+  appLinksIconLink: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignContent: 'center',
   },
   appLinksIconLv1: {
     height: '100%',
@@ -585,7 +597,13 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
                     <div className={classes.appLinksContainerLv1Outer}>
                       <div className={classes.appLinksContainerLv1}>
                         <div className={classes.appLinksIconContainerLv1}>
-                          {link ? <a href={link}>{imgLv1}</a> : <div>{imgLv1}</div>}
+                          {link ? (
+                            <a className={classes.appLinksIconLink} href={link}>
+                              {imgLv1}
+                            </a>
+                          ) : (
+                            <div className={classes.appLinksIconLink}>{imgLv1}</div>
+                          )}
                         </div>
                         <div
                           className={
@@ -606,7 +624,9 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
                             <>
                               <div className={classes.appLinksContainerLv2}>
                                 <div className={classes.appLinksIconContainerLv2}>
-                                  <a href={link}>{imgLv2}</a>
+                                  <a className={classes.appLinksIconLink} href={link}>
+                                    {imgLv2}
+                                  </a>
                                 </div>
                                 <div className={classes.appLinksNameLv2}>{alt ?? name}</div>
                               </div>
