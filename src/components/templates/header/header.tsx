@@ -6,6 +6,7 @@ import { useTranslation } from 'next-i18next';
 import { CtfNavigationGql } from '@src/components/features/ctf-components/ctf-navigation/ctf-navigation-gql';
 import { Link } from '@src/components/shared/link';
 // import Logo from '@src/icons/colorful-coin-logo.svg';
+import { HomeAddress } from '@src/consts';
 import { HEADER_HEIGHT, HEADER_HEIGHT_MD, CONTAINER_WIDTH } from '@src/theme';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -89,7 +90,7 @@ export const Header = (props: HeaderPropsInterface) => {
             maxWidth: `${CONTAINER_WIDTH / 10}rem`,
           }}
         >
-          <Link href="/" withoutMaterial title={t('common.homepage')}>
+          <Link href={HomeAddress} withoutMaterial title={t('common.homepage')}>
             {/* <Logo className={classes.corporateLogo} /> */}
             <img className={classes.corporateLogo} src="/logo_black.svg" alt="FirstOrder.AI" />
           </Link>
