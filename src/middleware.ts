@@ -13,10 +13,11 @@ export async function middleware(req: NextRequest) {
 
   if (slug == 'authenticator' && !host?.startsWith(slug)) {
     req.headers.set('host', slug + '.' + host);
-    url.hostname = slug + '.' + url.hostname?.split('.')?.slice(-2).join('.');
-    url.pathname = url.pathname.substring('/authenticator'.length);
+    const hostname = slug + '.' + url.hostname?.split('.')?.slice(-2).join('.');
+    const pathname = url.pathname.substring('/authenticator'.length);
+    const newUrl = new URL(`https://${hostname}${pathname}`);
     // console.log('redirect');
-    return NextResponse.redirect(url);
+    return NextResponse.redirect(newUrl);
   }
 
   return NextResponse.next();
