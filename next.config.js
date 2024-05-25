@@ -91,17 +91,6 @@ module.exports = withPlugins(plugins, {
     return config;
   },
 
-  redirects() {
-    return [
-      {
-        source: '/authenticator',
-        has: [{ type: 'host', value: 'firstorder.ai' }],
-        destination: 'https://authenticator.firstorder.ai',
-        permanent: true,
-      },
-    ];
-  },
-
   rewrites() {
     return {
       beforeFiles: [
