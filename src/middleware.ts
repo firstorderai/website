@@ -11,9 +11,8 @@ export async function middleware(req: NextRequest) {
   // console.log('url host: ', url.hostname);
   // console.log('url path: ', url.pathname);
 
-  if (slug == 'authenticator' && !host?.startsWith(slug)) {
-    req.headers.set('host', slug + '.' + host);
-    const hostname = slug + '.' + url.hostname?.split('.')?.slice(-2).join('.');
+  if (slug == 'authenticator') {
+    const hostname = slug + '.' + host;
     const pathname = url.pathname.substring('/authenticator'.length);
     const newUrl = new URL(`https://${hostname}${pathname}`);
     // console.log('redirect');
