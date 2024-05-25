@@ -78,6 +78,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down('lg')]: {
       justifyContent: 'center',
     },
+    [theme.breakpoints.down('md')]: {
+      paddingBottom: '1.5rem',
+    },
     [theme.breakpoints.down('sm')]: {
       gap: '1rem',
     },
@@ -96,11 +99,16 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   downloadLinks: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
+    width: '40rem',
+    flexWrap: 'wrap',
     paddingBottom: '1rem',
     [theme.breakpoints.down('lg')]: {
+      width: '100%',
       justifyContent: 'center',
       paddingBottom: '0.5rem',
+      paddingLeft: '2rem',
+      paddingRight: '2rem',
       flexDirection: 'row',
     },
     [theme.breakpoints.down('sm')]: {
@@ -188,9 +196,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down('lg')]: {
       marginTop: theme.spacing(2),
       marginBottom: theme.spacing(2),
-      width: '90%',
+      width: '80%',
       marginLeft: 'auto',
       marginRight: 'auto',
+      paddingBottom: '1rem',
     },
 
     '& p': {
@@ -222,10 +231,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     [theme.breakpoints.down('lg')]: {
       marginBottom: theme.spacing(3),
-      width: '85%',
+      paddingTop: '2rem',
+      paddingBottom: '1rem',
+      width: '80%',
     },
     [theme.breakpoints.down('sm')]: {
-      width: '85%',
+      width: '80%',
     },
   },
   imageInner: {
@@ -352,6 +363,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     gap: '1rem',
     flexWrap: 'wrap',
     rowGap: '0.5rem',
+    [theme.breakpoints.down('lg')]: {
+      paddingLeft: '2rem',
+      paddingRight: '2rem',
+    },
   },
   appLinksDivider: {
     [theme.breakpoints.down('sm')]: {
