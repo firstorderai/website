@@ -3,7 +3,10 @@
     "apps": [],
     "details": [
       {
-        "appID": "V7KQH27KZA.ai.firstorder.authenticator"
+        "appID": "V7KQH27KZA.ai.firstorder.authenticator",
+        "paths": [
+          "openApp"
+        ]
       }
     ]
   },
