@@ -3,9 +3,6 @@
     "apps": [],
     "details": [
       {
-        "paths": [
-          "/iosapp/authenticator*"
-        ],
         "appID": "V7KQH27KZA.ai.firstorder.authenticator"
       }
     ]
