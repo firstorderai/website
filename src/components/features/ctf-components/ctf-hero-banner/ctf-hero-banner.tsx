@@ -560,8 +560,8 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
                 </LayoutContext.Provider>
               )}
               <div className={classes.downloadLinks}>
-                {downloadLinks.map(item => (
-                  <a href={item.link} key={item.store}>
+                {downloadLinks.map((item, index) => (
+                  <a href={item.link} key={index}>
                     <img
                       className={classes.downloadLinksIcon}
                       src={'/store/' + item.store + '.svg'}
@@ -608,7 +608,7 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
                 const isDisabled = !item.links;
                 const imgLv1 = getAppLinkImgLv1(platform, isDisabled);
                 return (
-                  <>
+                  <div key={index}>
                     <div className={classes.appLinksContainerLv1Outer}>
                       <div className={classes.appLinksContainerLv1}>
                         <div className={classes.appLinksIconContainerLv1}>
@@ -630,13 +630,13 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
                       </div>
                       {links &&
                         links.length > 1 &&
-                        links.map(item => {
+                        links.map((item, index) => {
                           const name = item.name;
                           const alt = item.alt;
                           const link = item.link;
                           const imgLv2 = getAppLinkImgLv2(name);
                           return (
-                            <>
+                            <div key={index}>
                               <div className={classes.appLinksContainerLv2}>
                                 <div className={classes.appLinksIconContainerLv2}>
                                   <a className={classes.appLinksIconLink} href={link}>
@@ -645,7 +645,7 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
                                 </div>
                                 <div className={classes.appLinksNameLv2}>{alt ?? name}</div>
                               </div>
-                            </>
+                            </div>
                           );
                         })}
                     </div>
@@ -654,7 +654,7 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
                         <img src={'line_divider.svg'} alt="" className={classes.appLinksDivider} />
                       </>
                     )}
-                  </>
+                  </div>
                 );
               })}
             </div>
