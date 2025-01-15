@@ -1,6 +1,7 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react';
 import { Container, Theme, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import React from 'react';
 
 import { HeroBannerFieldsFragment } from './__generated/ctf-hero-banner.generated';
 
@@ -608,7 +609,7 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
                 const isDisabled = !item.links;
                 const imgLv1 = getAppLinkImgLv1(platform, isDisabled);
                 return (
-                  <div key={index}>
+                  <React.Fragment key={index}>
                     <div className={classes.appLinksContainerLv1Outer}>
                       <div className={classes.appLinksContainerLv1}>
                         <div className={classes.appLinksIconContainerLv1}>
@@ -654,7 +655,7 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
                         <img src={'line_divider.svg'} alt="" className={classes.appLinksDivider} />
                       </>
                     )}
-                  </div>
+                  </React.Fragment>
                 );
               })}
             </div>

@@ -3,7 +3,7 @@ import { Theme, Container, Typography, Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import Image, { ImageLoader } from 'next/image';
 import queryString from 'query-string';
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 
 import { ProductFieldsFragment } from './__generated/ctf-product.generated';
 
@@ -612,7 +612,7 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                 const isDisabled = !item.links;
                 const imgLv1 = getAppLinkImgLv1(platform, isDisabled);
                 return (
-                  <>
+                  <React.Fragment key={index}>
                     <div className={classes.appLinksContainerLv1Outer}>
                       <div className={classes.appLinksContainerLv1}>
                         <div className={classes.appLinksIconContainerLv1}>
@@ -658,7 +658,7 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                         <img src={'line_divider.svg'} alt="" className={classes.appLinksDivider} />
                       </>
                     )}
-                  </>
+                  </React.Fragment>
                 );
               })}
             </div>
