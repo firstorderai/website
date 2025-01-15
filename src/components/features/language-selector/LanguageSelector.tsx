@@ -17,9 +17,14 @@ export const LanguageSelector = () => {
   const classes = useStyles();
   const router = useRouter();
 
-  const languageNames = new Intl.DisplayNames([], {
-    type: 'language',
-  });
+  // Intl.DisplayNames 在不同环境中可能会返回不同的结果。为了解决这个问题，在服务器端和客户端使用相同的逻辑来生成语言名称。
+  // const languageNames = new Intl.DisplayNames([], {
+  //   type: 'language',
+  // });
+  const languageNames = {
+    'en-US': 'English (United States)',
+    'zh-CN': '中文 (简体)',
+  };
 
   // console.log('locales: ', locales);
 
@@ -48,7 +53,7 @@ export const LanguageSelector = () => {
       >
         {locales?.map(availableLocale => (
           <MenuItem key={availableLocale} value={availableLocale}>
-            {languageNames.of(availableLocale)}
+            {languageNames[availableLocale] || availableLocale}
           </MenuItem>
         ))}
       </Select>
