@@ -11,7 +11,7 @@ import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtex
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    paddingBottom: theme.spacing(0),
+    paddingBottom: theme.spacing(6),
     paddingTop: (props: BusinessInfoFieldsFragment) =>
       props.name || props.shortDescription ? 0 : theme.spacing(18),
     '& .MuiContainer-root + .ComponentInfoBlock': {
