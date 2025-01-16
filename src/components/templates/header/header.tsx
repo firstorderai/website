@@ -80,7 +80,7 @@ export const Header = (props: HeaderPropsInterface) => {
   const { onMenuClick, isMenuOpen } = props;
   const classes = useStyles();
   const { homeAddress } = useHomeAddress();
-  const homeAddressStr = homeAddress.homeAddress ?? DefaultHomeAddress;
+  const homeAddressStr = homeAddress?.homeAddress ?? DefaultHomeAddress;
 
   // console.log('homeAddressStr', homeAddressStr);
 
