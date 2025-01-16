@@ -4,16 +4,16 @@ export const getMainDomain = (host: string | undefined): string | undefined => {
   if (host == null) {
     return undefined;
   } else {
-    if (host.endsWith('.ai') || host.endsWith('.cn') || host.endsWith('.com')) {
-      const parts = host.split('.').filter(Boolean);
-      if (parts.length > 2) {
-        return parts.slice(-2).join('.');
-      }
-      return host;
-    } else if (host.endsWith('.com.cn')) {
+    if (host.endsWith('.com.cn')) {
       const parts = host.split('.').filter(Boolean);
       if (parts.length > 3) {
         return parts.slice(-3).join('.');
+      }
+      return host;
+    } else if (host.endsWith('.ai') || host.endsWith('.cn') || host.endsWith('.com')) {
+      const parts = host.split('.').filter(Boolean);
+      if (parts.length > 2) {
+        return parts.slice(-2).join('.');
       }
       return host;
     } else {
