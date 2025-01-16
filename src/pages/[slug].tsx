@@ -1,7 +1,8 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
-import { NextPage, NextPageContext } from 'next';
+import { GetServerSidePropsContext, NextPage } from 'next';
 import { useRouter } from 'next/router';
 
+import { getHomeAddress } from '@src/common';
 import { useCtfFooterQuery } from '@src/components/features/ctf-components/ctf-footer/__generated/ctf-footer.generated';
 import { useCtfNavigationQuery } from '@src/components/features/ctf-components/ctf-navigation/__generated/ctf-navigation.generated';
 import { useCtfPageQuery } from '@src/components/features/ctf-components/ctf-page/__generated/ctf-page.generated';
@@ -18,16 +19,19 @@ const SlugPage: NextPage = () => {
   return <CtfPageGgl slug={slug} />;
 };
 
-export interface CustomNextPageContext extends NextPageContext {
+export interface CustomNextPageContext extends GetServerSidePropsContext {
   params: {
     slug: string;
   };
   id: string;
 }
 
-export const getServerSideProps = async ({ locale, params, query }: CustomNextPageContext) => {
+export const getServerSideProps = async (context: CustomNextPageContext) => {
+  const { locale, params, query } = context;
   const slug = params.slug;
   const preview = Boolean(query.preview);
+
+  const homeAddress = getHomeAddress(context, context.req.headers.host);
 
   try {
     const queryClient = new QueryClient();
@@ -111,6 +115,7 @@ export const getServerSideProps = async ({ locale, params, query }: CustomNextPa
       props: {
         ...(await getServerSideTranslations(locale)),
         dehydratedState: dehydrate(queryClient),
+        homeAddress,
       },
     };
   } catch {

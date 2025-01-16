@@ -634,14 +634,14 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                       </div>
                       {links &&
                         links.length > 1 &&
-                        links.map(item => {
+                        links.map((item, index) => {
                           const name = item.name;
                           const alt = item.alt;
                           const link = item.link;
                           const imgLv2 = getAppLinkImgLv2(name);
                           return (
                             <>
-                              <div className={classes.appLinksContainerLv2}>
+                              <div className={classes.appLinksContainerLv2} key={index}>
                                 <div className={classes.appLinksIconContainerLv2}>
                                   <a className={classes.appLinksIconLink} href={link}>
                                     {imgLv2}

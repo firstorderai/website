@@ -15,16 +15,19 @@ export async function middleware(req: NextRequest) {
   const host = req.headers.get('host') || '';
   const slug = url.pathname.split('/')[1];
 
+  // console.log('protocol: ', url.protocol);
   // console.log('host: ', host);
   // console.log('url host: ', url.hostname);
   // console.log('url path: ', url.pathname);
 
-  if (slug == 'authenticator') {
-    const hostname = subdomain(host, slug);
-    const pathname = url.pathname.substring('/authenticator'.length);
-    const newUrl = new URL(`https://${hostname}${pathname}`);
-    // console.log('redirect');
-    return NextResponse.redirect(newUrl);
+  if (url.hostname != 'localhost') {
+    if (slug == 'authenticator') {
+      const hostname = subdomain(host, slug);
+      const pathname = url.pathname.substring('/authenticator'.length);
+      const newUrl = new URL(`${url.protocol}//${hostname}${pathname}`);
+      // console.log('redirect');
+      return NextResponse.redirect(newUrl);
+    }
   }
 
   return NextResponse.next();

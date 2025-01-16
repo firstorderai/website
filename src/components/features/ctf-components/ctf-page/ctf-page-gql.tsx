@@ -5,8 +5,9 @@ import CtfPage from './ctf-page';
 
 import { useCtfPageQuery } from '@src/components/features/ctf-components/ctf-page/__generated/ctf-page.generated';
 import { PageError } from '@src/components/features/errors/page-error';
-import { Domain } from '@src/consts';
+import { DefaultMainDomain } from '@src/consts';
 import { useContentfulContext } from '@src/contentful-context';
+import { useHomeAddress } from '@src/homeaddress-context';
 import { tryget } from '@src/utils';
 import contentfulConfig from 'contentful.config';
 
@@ -19,6 +20,8 @@ const CtfPageGgl = ({ slug: slugFromProps }: Props) => {
   const slug = !slugFromProps || slugFromProps === '/' ? 'home' : slugFromProps;
 
   const { previewActive, locale } = useContentfulContext();
+  const { homeAddress } = useHomeAddress();
+  const { mainDomain } = homeAddress ?? { mainDomain: DefaultMainDomain };
 
   const { isLoading, data } = useCtfPageQuery({
     slug,
@@ -84,7 +87,7 @@ const CtfPageGgl = ({ slug: slugFromProps }: Props) => {
           />
         )}
         {page.slug === 'authenticator' && (
-          <link rel="canonical" href={'https://authenticator.' + Domain} />
+          <link rel="canonical" href={'https://authenticator.' + mainDomain} />
         )}
         <meta key="og:locale" property="og:locale" content={locale} />
       </Head>

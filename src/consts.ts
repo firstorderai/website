@@ -1,4 +1,6 @@
-const Domain = 'firstorder.ai';
-const HomeAddress = 'https://' + Domain;
+import { parseCookies } from 'nookies';
 
-export { Domain, HomeAddress };
+const DefaultMainDomain = 'firstorder.ai';
+const DefaultHomeAddress = 'https://' + DefaultMainDomain;
+
+export { DefaultMainDomain, DefaultHomeAddress };
