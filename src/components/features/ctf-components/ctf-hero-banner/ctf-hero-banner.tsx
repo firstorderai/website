@@ -140,7 +140,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   headlineContainer: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 2,
+    gap: 6,
   },
   headline: {
     fontSize: '4vw',
@@ -153,10 +153,10 @@ const useStyles = makeStyles((theme: Theme) => ({
       fontSize: '3rem',
     },
     [theme.breakpoints.up('lg')]: {
-      fontSize: '2.8rem',
+      fontSize: '2.5rem',
     },
     [theme.breakpoints.down('md')]: {
-      fontSize: '2.8rem',
+      fontSize: '2.5rem',
     },
     [theme.breakpoints.up('sm')]: {
       paddingTop: '0.5rem',
@@ -190,7 +190,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     '& p': {
       fontSize: '2rem',
       [theme.breakpoints.up('xl')]: {
-        fontSize: '2.2rem',
+        fontSize: '2rem',
         fontWeight: 400,
         lineHeight: 1.56,
         maxWidth: '51rem',
