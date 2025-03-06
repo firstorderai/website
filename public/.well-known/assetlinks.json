@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ai.firstorder.auth",
+      "sha256_cert_fingerprints": [
+        "E4:7D:FD:C0:C4:8B:BA:38:8E:DD:F1:8C:49:74:39:BC:F3:2A:37:15:FD:40:70:00:84:9B:49:F8:6D:00:C9:E8"
+      ]
+    }
+  }
+]
