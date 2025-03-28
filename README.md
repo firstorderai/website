@@ -5,7 +5,7 @@ components, and data management.
 
 ![The homepage of the Marketing Starter Template](marketing-starter-template.jpg 'The homepage of the Marketing Starter Template')
 
-$~$
+$~$ .
 
 ## What is Contentful?
 
