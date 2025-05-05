@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'center',
 
     [theme.breakpoints.up('lg')]: {
-      alignItems: 'center',
+      alignItems: 'flex-start',
       flexDirection: 'row',
       paddingBottom: '3.5rem',
     },
@@ -59,11 +59,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     textAlign: 'center',
     [theme.breakpoints.up('lg')]: {
       width: 'calc(45%)',
-      paddingLeft: '2.5rem',
       paddingBottom: '3.5rem',
       paddingTop: '1rem',
       textAlign: 'left',
-      marginRight: '-10rem',
+      marginLeft: '4rem',
+      marginRight: '4rem',
     },
     [theme.breakpoints.down('lg')]: {
       paddingTop: '0rem',
@@ -221,22 +221,23 @@ const useStyles = makeStyles((theme: Theme) => ({
   imageContainer: {
     order: 1,
     width: '100%',
+    marginRight: '4rem',
 
     [theme.breakpoints.up('lg')]: {
       display: 'flex',
       justifyContent: 'flex-end',
       marginBottom: 0,
       order: 3,
-      width: 'calc(80%)',
+      width: 'calc(60%)',
     },
     [theme.breakpoints.down('lg')]: {
       marginBottom: theme.spacing(3),
       paddingTop: '2rem',
       paddingBottom: '1rem',
-      width: '80%',
+      width: '60%',
     },
     [theme.breakpoints.down('sm')]: {
-      width: '80%',
+      width: '60%',
     },
   },
   imageInner: {
@@ -246,7 +247,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingTop: '1rem',
     marginLeft: 'auto',
     marginRight: 'auto',
-    maxWidth: '77rem',
+    maxWidth: '50%',
   },
   innerBox: {
     margin: 0,
@@ -344,9 +345,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   featureImage: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: '20rem',
     [theme.breakpoints.down('md')]: {
       width: '50%',
       marginLeft: 'auto',
@@ -721,9 +720,7 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                                   alt={item.featuredImage.description || ''}
                                   width={item.featuredImage.width as number}
                                   height={item.featuredImage.height as number}
-                                  // quality={60}
                                   loader={contentfulLoader}
-                                  // sizes="(min-width: 355px) 355px, 98vw"
                                 />
                               </div>
                             )}

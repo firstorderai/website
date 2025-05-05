@@ -66,6 +66,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     top: 'calc(100% - 2rem)',
     transform: 'translateY(20%)',
     transition: 'all 0.3s ease-in-out',
+    '& > li': {
+      marginBottom: theme.spacing(1), // Add spacing between submenu items
+      '&:last-child': {
+        marginBottom: 0, // Remove margin from last item
+      },
+    },
   },
   submenuItem: {
     '&:hover, &:focus, &:focus-within': {
