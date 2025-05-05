@@ -32,19 +32,3 @@ export const getProtocol = (context): string => {
   }
   return protocol;
 };
-
-export interface HomeAddress {
-  mainDomain: string;
-  homeAddress: string;
-}
-
-export const getHomeAddress = (context, host: string | undefined): HomeAddress => {
-  const mainDomain = getMainDomain(host);
-  if (mainDomain == null) {
-    return { mainDomain: DefaultMainDomain, homeAddress: DefaultHomeAddress };
-  } else {
-    const protocol = getProtocol(context);
-    const homeAddress = `${protocol}://${mainDomain}`;
-    return { mainDomain, homeAddress };
-  }
-};

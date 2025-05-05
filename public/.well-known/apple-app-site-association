@@ -7,12 +7,19 @@
         "paths": [
           "openApp"
         ]
+      },
+      {
+        "appID": "V7KQH27KZA.ai.firstorder.printer",
+        "paths": [
+          "openApp"
+        ]
       }
     ]
   },
   "webcredentials": {
     "apps": [
-      "V7KQH27KZA.ai.firstorder.authenticator"
+      "V7KQH27KZA.ai.firstorder.authenticator",
+      "V7KQH27KZA.ai.firstorder.printer"
     ]
   }
 }

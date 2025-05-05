@@ -5,9 +5,6 @@ import { useTranslation } from 'next-i18next';
 
 import { CtfNavigationGql } from '@src/components/features/ctf-components/ctf-navigation/ctf-navigation-gql';
 import { Link } from '@src/components/shared/link';
-import { DefaultHomeAddress } from '@src/consts';
-import { useContentfulContext } from '@src/contentful-context';
-import { useHomeAddress } from '@src/homeaddress-context';
 import { HEADER_HEIGHT, HEADER_HEIGHT_MD, CONTAINER_WIDTH } from '@src/theme';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -79,10 +76,6 @@ export const Header = (props: HeaderPropsInterface) => {
 
   const { onMenuClick, isMenuOpen } = props;
   const classes = useStyles();
-  const { homeAddress } = useHomeAddress();
-  const homeAddressStr = homeAddress?.homeAddress ?? DefaultHomeAddress;
-
-  // console.log('homeAddressStr', homeAddressStr);
 
   return (
     <AppBar position="sticky" color="secondary" className={classes.appbar}>
@@ -95,7 +88,7 @@ export const Header = (props: HeaderPropsInterface) => {
             maxWidth: `${CONTAINER_WIDTH / 10}rem`,
           }}
         >
-          <Link href={homeAddressStr} withoutMaterial title={t('common.homepage')}>
+          <Link href="/" withoutMaterial title={t('common.homepage')}>
             {/* <Logo className={classes.corporateLogo} /> */}
             <img className={classes.corporateLogo} src="/logo_black.svg" alt="FirstOrder.AI" />
           </Link>

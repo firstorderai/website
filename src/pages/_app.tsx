@@ -8,11 +8,9 @@ import { appWithTranslation, SSRConfig } from 'next-i18next';
 import { useEffect, useState } from 'react';
 import '@contentful/live-preview/style.css';
 
-import { HomeAddress } from '@src/common';
 import { Settings } from '@src/components/features/settings';
 import { Layout } from '@src/components/templates/layout/layout';
 import { useContentfulContext, ContentfulContentProvider } from '@src/contentful-context';
-import { HomeAddressProvider } from '@src/homeaddress-context';
 import { queryConfig } from '@src/lib/gql-client';
 import colorfulTheme from '@src/theme';
 import contentfulConfig from 'contentful.config';
@@ -35,7 +33,6 @@ const LivePreviewProvider = ({ children }) => {
 type CustomPageProps = SSRConfig & {
   dehydratedState: DehydratedState;
   err: Error;
-  homeAddress: HomeAddress;
 };
 
 const CustomApp = ({
@@ -44,7 +41,7 @@ const CustomApp = ({
   pageProps: originalPageProps,
 }: AppProps<CustomPageProps>) => {
   const [queryClient] = useState(() => new QueryClient(queryConfig));
-  const { dehydratedState, err, homeAddress, ...pageProps } = originalPageProps;
+  const { dehydratedState, err, ...pageProps } = originalPageProps;
   const { previewActive } = useContentfulContext();
 
   useEffect(() => {
@@ -84,25 +81,23 @@ const CustomApp = ({
         <meta key="og:type" property="og:type" content="website" />
       </Head>
 
-      <HomeAddressProvider homeAddress={homeAddress}>
-        <ContentfulContentProvider router={router}>
-          <LivePreviewProvider>
-            <QueryClientProvider client={queryClient}>
-              <ReactQueryDevtools initialIsOpen={false} />
-              <StyledEngineProvider injectFirst>
-                <ThemeProvider theme={colorfulTheme}>
-                  <Hydrate state={dehydratedState}>
-                    <Layout preview={previewActive}>
-                      <Component {...pageProps} err={err} />
-                      <Settings />
-                    </Layout>
-                  </Hydrate>
-                </ThemeProvider>
-              </StyledEngineProvider>
-            </QueryClientProvider>
-          </LivePreviewProvider>
-        </ContentfulContentProvider>
-      </HomeAddressProvider>
+      <ContentfulContentProvider router={router}>
+        <LivePreviewProvider>
+          <QueryClientProvider client={queryClient}>
+            <ReactQueryDevtools initialIsOpen={false} />
+            <StyledEngineProvider injectFirst>
+              <ThemeProvider theme={colorfulTheme}>
+                <Hydrate state={dehydratedState}>
+                  <Layout preview={previewActive}>
+                    <Component {...pageProps} err={err} />
+                    <Settings />
+                  </Layout>
+                </Hydrate>
+              </ThemeProvider>
+            </StyledEngineProvider>
+          </QueryClientProvider>
+        </LivePreviewProvider>
+      </ContentfulContentProvider>
     </>
   );
 };

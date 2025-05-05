@@ -1,6 +1,5 @@
-import { parseCookies } from 'nookies';
-
 const DefaultMainDomain = 'firstorder.ai';
-const DefaultHomeAddress = 'https://' + DefaultMainDomain;
+const DefaultHomeAddress =
+  typeof window !== 'undefined' ? window?.location?.origin : 'https://' + DefaultMainDomain;
 
 export { DefaultMainDomain, DefaultHomeAddress };

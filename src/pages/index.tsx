@@ -1,7 +1,6 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { GetServerSidePropsContext, NextPage } from 'next';
 
-import { getHomeAddress, HomeAddress } from '@src/common';
 import { useCtfFooterQuery } from '@src/components/features/ctf-components/ctf-footer/__generated/ctf-footer.generated';
 import { useCtfNavigationQuery } from '@src/components/features/ctf-components/ctf-navigation/__generated/ctf-navigation.generated';
 import { useCtfPageQuery } from '@src/components/features/ctf-components/ctf-page/__generated/ctf-page.generated';
@@ -15,8 +14,6 @@ const LangPage: NextPage = () => {
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
   const { locale, query } = context;
-
-  const homeAddress = getHomeAddress(context, context.req.headers.host);
 
   try {
     const preview = Boolean(query.preview);
@@ -54,7 +51,6 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
       props: {
         ...(await getServerSideTranslations(locale)),
         dehydratedState: dehydrate(queryClient),
-        homeAddress,
       },
     };
   } catch {

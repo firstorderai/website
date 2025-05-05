@@ -93,20 +93,20 @@ module.exports = withPlugins(plugins, {
 
   rewrites() {
     return {
-      beforeFiles: [
-        // if the host is `app.acme.com`,
-        // this rewrite will be applied
-        {
-          source: '/',
-          has: [
-            {
-              type: 'host',
-              value: 'authenticator.firstorder.*',
-            },
-          ],
-          destination: '/authenticator',
-        },
-      ],
+      // beforeFiles: [
+      //   // if the host is `app.acme.com`,
+      //   // this rewrite will be applied
+      //   {
+      //     source: '/',
+      //     has: [
+      //       {
+      //         type: 'host',
+      //         value: 'authenticator.firstorder.*',
+      //       },
+      //     ],
+      //     destination: '/authenticator',
+      //   },
+      // ],
     };
   },
 });
